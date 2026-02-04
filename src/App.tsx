@@ -54,6 +54,26 @@ function parseUniqueCompanies(csv: string): string[] {
   return Array.from(companies).sort();
 }
 
+// Parse unique sectors from CSV (the sector column, not thematic_sector)
+function parseUniqueSectors(csv: string): string[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  const headers = lines[0].split(',');
+  const sectorIdx = headers.indexOf('sector');
+  
+  if (sectorIdx === -1) return [];
+  
+  const sectors = new Set<string>();
+  for (let i = 1; i < lines.length; i++) {
+    const cols = parseCSVLine(lines[i]);
+    if (cols[sectorIdx]) {
+      sectors.add(cols[sectorIdx]);
+    }
+  }
+  return Array.from(sectors).sort();
+}
+
 function parseCSVLine(line: string): string[] {
   const result: string[] = [];
   let current = '';
@@ -75,23 +95,25 @@ function parseCSVLine(line: string): string[] {
 }
 
 // Admin Panel
-function AdminPanel({ onClose, existingCompanies, onRefresh }: { 
+function AdminPanel({ onClose, onRefresh }: { 
   onClose: () => void;
-  existingCompanies: Company[];
   onRefresh: () => void;
 }) {
   const [csvContent, setCsvContent] = useState('');
   const [csvFile, setCsvFile] = useState<File | null>(null);
-  const [htmlFiles, setHtmlFiles] = useState<{file: File, company: string, sector: string}[]>([]);
+  const [htmlFiles, setHtmlFiles] = useState<{file: File, sector: string}[]>([]);
   const [companies, setCompanies] = useState<string[]>([]);
+  const [sectors, setSectors] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     if (csvContent) {
-      const parsed = parseUniqueCompanies(csvContent);
-      setCompanies(parsed);
+      const parsedCompanies = parseUniqueCompanies(csvContent);
+      const parsedSectors = parseUniqueSectors(csvContent);
+      setCompanies(parsedCompanies);
+      setSectors(parsedSectors);
     }
   }, [csvContent]);
 
@@ -109,15 +131,8 @@ function AdminPanel({ onClose, existingCompanies, onRefresh }: {
 
   const handleHtmlUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(e.target.files || []);
-    const newFiles = files.map(file => ({ file, company: '', sector: '' }));
+    const newFiles = files.map(file => ({ file, sector: '' }));
     setHtmlFiles([...htmlFiles, ...newFiles]);
-  };
-
-  const updateHtmlCompany = (index: number, company: string) => {
-    const updated = [...htmlFiles];
-    updated[index].company = company;
-    updated[index].sector = ''; // Reset sector when company changes
-    setHtmlFiles(updated);
   };
 
   const updateHtmlSector = (index: number, sector: string) => {
@@ -128,12 +143,6 @@ function AdminPanel({ onClose, existingCompanies, onRefresh }: {
 
   const removeHtmlFile = (index: number) => {
     setHtmlFiles(htmlFiles.filter((_, i) => i !== index));
-  };
-
-  // Get sectors for a specific company
-  const getSectorsForCompany = (companyName: string): string[] => {
-    const company = existingCompanies.find(c => c.name === companyName);
-    return company ? company.sectors.map(s => s.name) : [];
   };
 
   const handleSubmit = async () => {
@@ -147,9 +156,8 @@ function AdminPanel({ onClose, existingCompanies, onRefresh }: {
       }
 
       const htmlData = await Promise.all(
-        htmlFiles.map(async ({ file, company, sector }) => ({
+        htmlFiles.map(async ({ file, sector }) => ({
           filename: file.name,
-          company,
           sector,
           content: await file.text()
         }))
@@ -260,45 +268,40 @@ function AdminPanel({ onClose, existingCompanies, onRefresh }: {
                 </label>
               </div>
 
+              {sectors.length > 0 && (
+                <div className="bg-muted p-4 rounded-lg">
+                  <p className="text-sm font-medium mb-2">Sectors found (from 'sector' column):</p>
+                  <div className="flex flex-wrap gap-2">
+                    {sectors.map(s => (
+                      <Badge key={s} variant="outline">{s}</Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               {htmlFiles.length > 0 && (
                 <div className="space-y-3">
-                  <p className="text-sm font-medium">Assign graphs to company → sector:</p>
-                  {htmlFiles.map((item, idx) => {
-                    const availableSectors = getSectorsForCompany(item.company);
-                    return (
-                      <div key={idx} className="p-3 bg-muted rounded-lg space-y-2">
-                        <div className="flex items-center gap-2">
-                          <span className="flex-1 text-sm truncate font-medium">{item.file.name}</span>
-                          <Button variant="ghost" size="sm" onClick={() => removeHtmlFile(idx)}>
-                            <X className="h-4 w-4" />
-                          </Button>
-                        </div>
-                        <div className="flex gap-2">
-                          <select
-                            value={item.company}
-                            onChange={(e) => updateHtmlCompany(idx, e.target.value)}
-                            className="flex-1 px-3 py-1.5 rounded border bg-background text-sm"
-                          >
-                            <option value="">Select company...</option>
-                            {[...companies, ...existingCompanies.map(c => c.name)].map(c => (
-                              <option key={c} value={c}>{c}</option>
-                            ))}
-                          </select>
-                          <select
-                            value={item.sector}
-                            onChange={(e) => updateHtmlSector(idx, e.target.value)}
-                            className="flex-1 px-3 py-1.5 rounded border bg-background text-sm"
-                            disabled={!item.company}
-                          >
-                            <option value="">Select sector...</option>
-                            {availableSectors.map(s => (
-                              <option key={s} value={s}>{s}</option>
-                            ))}
-                          </select>
-                        </div>
+                  <p className="text-sm font-medium">Assign each graph to a sector:</p>
+                  {htmlFiles.map((item, idx) => (
+                    <div key={idx} className="p-3 bg-muted rounded-lg space-y-2">
+                      <div className="flex items-center gap-2">
+                        <span className="flex-1 text-sm truncate font-medium">{item.file.name}</span>
+                        <Button variant="ghost" size="sm" onClick={() => removeHtmlFile(idx)}>
+                          <X className="h-4 w-4" />
+                        </Button>
                       </div>
-                    );
-                  })}
+                      <select
+                        value={item.sector}
+                        onChange={(e) => updateHtmlSector(idx, e.target.value)}
+                        className="w-full px-3 py-1.5 rounded border bg-background text-sm"
+                      >
+                        <option value="">Select sector...</option>
+                        {sectors.map(s => (
+                          <option key={s} value={s}>{s}</option>
+                        ))}
+                      </select>
+                    </div>
+                  ))}
                 </div>
               )}
             </CardContent>
@@ -567,7 +570,6 @@ function App() {
       {view === 'upload' && (
         <AdminPanel 
           onClose={() => setView('list')}
-          existingCompanies={companies}
           onRefresh={() => {
             loadData();
             setView('list');

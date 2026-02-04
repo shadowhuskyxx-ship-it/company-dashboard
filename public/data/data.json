@@ -1,0 +1,1832 @@
+{
+  "companies": [
+    {
+      "sectors": [
+        {
+          "name": "Smart Energy Storage & Grid Flexibility Solutions",
+          "description": "This cluster delivers advanced battery storage systems, smart electric vehicle charging infrastructure, and flexible energy generation solutions like clean hydrogen. They optimize energy flow, integrate intermittent renewables, and provide grid stability. Serving utilities, businesses, and end-users, their distinctiveness lies in creating a more resilient, efficient, and decarbonized energy grid.",
+          "companyCount": 27,
+          "medianGrowthScore": 0.037,
+          "medianEmployeeCagr": 19.8,
+          "graphs": []
+        },
+        {
+          "name": "Grid Integration & Optimization for Renewable Energy",
+          "description": "This segment focuses on critical infrastructure and smart technologies for integrating renewable energy into electricity grids. They provide high-voltage electrical engineering, grid connection services, and advanced asset optimization platforms. Their distinct role is ensuring grid stability, efficiency, and resilience for a decarbonized energy future.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.019,
+          "medianEmployeeCagr": 18.2,
+          "graphs": []
+        },
+        {
+          "name": "Utility-Scale Renewable Project Development and Asset Management",
+          "description": "These companies specialize in the end-to-end development, financing, construction, and operation of utility-scale renewable energy projects. They primarily focus on large-scale solar PV, wind farms, and integrated battery storage systems. Serving grid operators, industrial clients, and investors, they provide comprehensive lifecycle management and often act as Independent Power Producers (IPPs).",
+          "companyCount": 23,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 14.1,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Heat Pump & Building Thermal Solutions",
+          "description": "These companies specialize in the design, installation, and manufacturing of advanced renewable heating, cooling, and energy efficiency systems. They provide integrated solutions like heat pumps, smart controls, and insulation for residential, commercial, and industrial properties. Their distinctiveness lies in combining diverse technologies for comprehensive building decarbonization and optimal thermal management.",
+          "companyCount": 14,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 13,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Renewable Energy Supply & Optimization",
+          "description": "These companies provide 100% renewable electricity and green gas to businesses and residential customers. They offer integrated solutions for optimizing energy consumption, installing on-site generation like solar and battery storage, and managing energy assets. Their goal is to empower end-users to reduce costs and carbon footprints through smart energy management and direct renewable supply.",
+          "companyCount": 12,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 13.2,
+          "graphs": []
+        },
+        {
+          "name": "Renewable-Integrated Building Services & M&E Contractors",
+          "description": "These firms provide comprehensive mechanical, electrical, and facilities management services for commercial, industrial, and residential buildings. They specialize in integrating renewable energy technologies like solar PV, heat pumps, and EV charging directly into building systems. Their distinctive approach offers holistic, low-carbon solutions for the built environment.",
+          "companyCount": 22,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 13,
+          "graphs": []
+        },
+        {
+          "name": "Bioenergy & Organic Resource Recovery",
+          "description": "These companies transform diverse organic waste streams, agricultural by-products, and biomass into renewable energy like electricity, heat, biomethane, and biofuels. They serve industrial, agricultural, and municipal sectors by recovering valuable materials and co-products. Their distinct approach emphasizes circularity, diverting waste from landfills, and supplying sustainable energy and resources.",
+          "companyCount": 13,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.2,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Wind Energy Asset Lifecycle Services",
+          "description": "These companies provide specialized engineering, construction, and operational support services for wind energy assets, primarily offshore wind farms. They offer comprehensive lifecycle solutions from resource assessment and installation to complex maintenance and component repair, utilizing advanced technologies and specialized equipment. They serve wind farm developers, operators, and utilities, ensuring optimal performance and longevity in challenging environments.",
+          "companyCount": 29,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 7.3,
+          "graphs": []
+        },
+        {
+          "name": "Renewable Energy & Sustainable Infrastructure Investment",
+          "description": "These firms provide specialized investment, financing, and asset management services for large-scale renewable energy and sustainable infrastructure projects. They enable the development and long-term operation of critical green assets for institutional investors and governments. Their distinction is deploying and managing significant capital for complex, long-lifecycle sustainable investments.",
+          "companyCount": 16,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10.2,
+          "graphs": []
+        },
+        {
+          "name": "Renewable Energy Scheme Administration & Quality Assurance",
+          "description": "These organizations provide essential governance and support services for the renewable energy sector. They administer government incentive schemes, manage contracts, ensure compliance, and establish quality standards for renewable technologies and installations. Serving policymakers, businesses, and consumers, they create a robust and trusted framework for renewable energy deployment and growth.",
+          "companyCount": 18,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 9.8,
+          "graphs": []
+        },
+        {
+          "name": "Commercial & Industrial Energy Optimization & Decarbonization",
+          "description": "This segment provides businesses with integrated, technology-driven solutions for energy supply, optimization, and decarbonization. They offer renewable energy procurement, advanced metering, data analytics, and demand-side management. Services help commercial and industrial clients manage consumption, reduce costs, and achieve sustainability targets.",
+          "companyCount": 25,
+          "medianGrowthScore": 0.022,
+          "medianEmployeeCagr": 16.2,
+          "graphs": []
+        },
+        {
+          "name": "Digital Grid & Flexible Energy Asset Management",
+          "description": "This segment provides digital platforms, software, and services for intelligent management and optimization of electricity grids and flexible energy assets, such as battery storage and demand response. They enable grid operators, asset owners, and energy suppliers to enhance grid stability, optimize asset performance, and facilitate market integration for the energy transition.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 13.2,
+          "graphs": []
+        },
+        {
+          "name": "High Voltage Electrical Infrastructure Services",
+          "description": "These companies provide specialized engineering, design, construction, and maintenance services for high voltage (HV) electrical transmission and distribution infrastructure up to 132kV. They serve utility operators, renewable energy developers, and industrial clients, focusing on grid connections, substations, overhead lines, and underground cables for reliable power delivery.",
+          "companyCount": 11,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 12.8,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Flexible & Responsive Power Solutions",
+          "description": "These companies develop, operate, and provide diverse power solutions, including energy-from-waste, biomass, flexible thermal, and critical backup generation alongside battery storage. They serve utilities, industrial, and commercial clients, ensuring grid stability, energy security, and facilitating decarbonization. Their core distinction is delivering agile, reliable, and specialized power infrastructure tailored for varying demands and sustainable energy transition.",
+          "companyCount": 24,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10.6,
+          "graphs": []
+        },
+        {
+          "name": "Independent Multi-Utility Network Providers for New Developments",
+          "description": "These are Independent Connection Providers (ICPs) and Independent Distribution Network Operators (IDNOs/NAVs) delivering integrated multi-utility solutions (electricity, gas, water, fibre, heat). They design, build, connect, and operate networks for new residential and commercial developments. Their 'one-stop-shop' approach simplifies complex utility infrastructure for new builds.",
+          "companyCount": 16,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 11.9,
+          "graphs": []
+        },
+        {
+          "name": "Integrated MEP & Building Energy Solutions",
+          "description": "These companies specialize in the design, installation, maintenance, and optimization of mechanical, electrical, and plumbing (MEP) systems within commercial, industrial, and large residential buildings. They focus on delivering integrated building services, energy efficiency solutions, and renewable energy technologies to enhance operational performance and reduce carbon footprint. Their distinction lies in providing comprehensive, on-site utility management and smart building technologies for complex facilities.",
+          "companyCount": 21,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.8,
+          "graphs": []
+        },
+        {
+          "name": "Water and Wastewater Infrastructure & Services",
+          "description": "This segment comprises companies delivering integrated services for the full water lifecycle, from raw water abstraction, treatment, and distribution to wastewater management and asset optimization. They serve residential, commercial, and industrial clients, utilizing advanced technologies and sustainable practices to ensure reliable water supply, efficient networks, and environmental protection.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.5,
+          "graphs": []
+        },
+        {
+          "name": "Bespoke Dining & Event Venue Hospitality",
+          "description": "These companies offer high-quality, bespoke food and beverage services through restaurants, pubs, cafes, and event catering, serving individuals, businesses, and event planners. They distinguish themselves by combining curated culinary experiences with unique venues and integrated hospitality services like accommodation or event management.",
+          "companyCount": 209,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 14.3,
+          "graphs": []
+        },
+        {
+          "name": "Community Sport & Wellbeing Hubs",
+          "description": "These organizations operate diverse leisure and fitness facilities such as gyms, pools, and sports courts. They provide structured programs, classes, and coaching for all ages, focusing on physical activity, health, and social connection. Distinctively, many are non-profit, reinvesting surpluses to promote community wellbeing and inclusive participation.",
+          "companyCount": 74,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 14.6,
+          "graphs": []
+        },
+        {
+          "name": "Professional Sports Club Hospitality & Entertainment",
+          "description": "These are professional sports clubs offering immersive fan experiences and extensive venue hospitality. They provide diverse ticketing, premium matchday packages, branded merchandise, and digital content to a global fanbase. Distinctively, they leverage their stadium facilities for non-matchday events and their brand for significant commercial partnerships and community engagement.",
+          "companyCount": 69,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11.7,
+          "graphs": []
+        },
+        {
+          "name": "Curated Leisure Travel & Destination Experiences",
+          "description": "This segment comprises providers of multi-faceted leisure travel and hospitality experiences. They offer curated packages, integrated resort stays, and specialized destination services, encompassing accommodation, activities, and transport for diverse travelers. Distinctively, these companies focus on delivering comprehensive, often themed or tailor-made, end-to-end journeys and destinations rather than isolated travel components.",
+          "companyCount": 247,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 11.5,
+          "graphs": []
+        },
+        {
+          "name": "Academic Residential Hospitality",
+          "description": "These entities provide comprehensive residential living solutions and integrated support services for students and young people in educational settings, including purpose-built student housing and boarding school facilities. They offer furnished accommodation with all-inclusive amenities, pastoral care, and community-building programs, distinctly focusing on creating safe, supportive environments that enhance academic and personal development.",
+          "companyCount": 22,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10.2,
+          "graphs": []
+        },
+        {
+          "name": "Specialty Food & Beverage Retailers and Service Providers",
+          "description": "These companies specialize in high-quality, often handcrafted, food and beverage products such as freshly roasted specialty coffees, artisan baked goods, and gourmet prepared meals. They serve individual consumers through retail and online channels, also providing wholesale and comprehensive business solutions. Distinctive for direct production, multi-channel distribution, and unique customer experiences.",
+          "companyCount": 54,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 17.3,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Pharmacy and Digital Health Solutions",
+          "description": "This segment includes retail and online pharmacies providing prescription and over-the-counter medicines. They offer integrated healthcare services like clinical consultations, vaccinations, and specialized treatments, often via digital platforms for convenient access. Distinctively, they blend traditional pharmacy roles with e-commerce and expanded health solutions, meeting diverse patient and community needs.",
+          "companyCount": 12,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 19.4,
+          "graphs": []
+        },
+        {
+          "name": "Specialty & On-Demand Grocery Fulfillment",
+          "description": "These companies specialize in supplying fresh, organic, or niche grocery products and prepared foods directly to consumers and commercial clients. They distinguish themselves through diverse, technology-driven fulfillment models, including rapid and doorstep delivery services. This approach prioritizes convenience, product quality, and often sustainability, modernizing access to specialized grocery items.",
+          "companyCount": 11,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 16,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Beauty & Personal Care Retail & Wholesale",
+          "description": "This segment encompasses retailers and wholesalers specializing in premium, professional-grade, and innovative beauty and personal care. Products range from luxury fragrances, advanced skincare, and professional hair/nail solutions to at-home beauty technologies. Serving discerning consumers and industry professionals, these companies provide high-quality, targeted solutions for enhancing appearance and well-being.",
+          "companyCount": 22,
+          "medianGrowthScore": 0.044,
+          "medianEmployeeCagr": 16.8,
+          "graphs": []
+        },
+        {
+          "name": "Professional Sports Clubs & Entertainment Enterprises",
+          "description": "These are professional sports clubs offering live match experiences, branded merchandise, and digital content to fans globally. They also provide B2B services like event venue hire and corporate sponsorships. Their distinctive model integrates sports entertainment, retail, and community engagement, operating as diversified commercial enterprises around a core athletic product.",
+          "companyCount": 33,
+          "medianGrowthScore": 0.018,
+          "medianEmployeeCagr": 17,
+          "graphs": []
+        },
+        {
+          "name": "Technical Building Services & Renewable Energy Distributors",
+          "description": "These specialized distributors provide comprehensive plumbing, heating, HVAC, electrical, and renewable energy systems, components, and spares. They primarily serve trade professionals and commercial clients, offering extensive technical support, design services, and training. Their distinctive focus is on enabling integrated solutions for new installations and maintenance of essential building infrastructure.",
+          "companyCount": 18,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 14.3,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Craft Beverage Production & Retail",
+          "description": "This cluster integrates the production, retail, and hospitality experiences of craft wines, beers, and spirits, operating breweries, wineries, distilleries, shops, and on-premise venues. Distinctiveness lies in connecting beverage creation with direct-to-consumer sales and unique consumption environments for curated selections.",
+          "companyCount": 5,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 13.8,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Automotive Retail & Aftermarket Services",
+          "description": "These businesses operate dealerships selling new and used cars, light commercial vehicles, and motorcycles, often including electric models. They provide comprehensive aftermarket services like maintenance, repairs, and financing options. Serving individual consumers and business fleets, their distinction is offering end-to-end solutions for vehicle acquisition, ownership, and ongoing care.",
+          "companyCount": 75,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 13.4,
+          "graphs": []
+        },
+        {
+          "name": "Premium & Bespoke Home Furnishings",
+          "description": "These companies design, manufacture, and retail high-quality furniture and sophisticated home furnishings, including bespoke sofas, beds, and luxury decor. They serve discerning consumers and property professionals seeking premium, durable, and aesthetically superior items. Distinction stems from craftsmanship, bespoke customization, designer brands, and premium materials for comfort and style.",
+          "companyCount": 19,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 12.3,
+          "graphs": []
+        },
+        {
+          "name": "Niche Retail & Integrated Sector Solutions",
+          "description": "These companies offer highly specialized products, from curated fashion and personalized gifts for consumer niches to comprehensive B2B supplies for education, healthcare, and social housing. They provide integrated services, digital platforms, or unique experiences alongside their goods, distinguishing them from traditional transactional retailers and wholesalers.",
+          "companyCount": 273,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10.8,
+          "graphs": []
+        },
+        {
+          "name": "Diversified Food & Beverage Wholesale and Distribution",
+          "description": "These companies are diversified wholesalers and distributors providing a comprehensive array of food, beverage, and related non-food products. They serve various B2B clients, including foodservice, independent retailers, and other commercial entities. Distinctive for their extensive supply chain capabilities, specialized product sourcing (e.g., ethnic or premium), and tailored logistical support.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialty Fine & Fashion Jewelry and Watch Retailers",
+          "description": "These specialty retailers and manufacturers offer high-quality fine and fashion jewelry, alongside luxury watches. Products include diamond and gemstone pieces, gold and silver jewelry, and Swiss-made timepieces, often with personalization. They serve discerning consumers, distinguishing themselves through expert craftsmanship, ethical sourcing, and often direct-to-consumer sales of unique, meaningful accessories.",
+          "companyCount": 17,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11.4,
+          "graphs": []
+        },
+        {
+          "name": "Residential Interior & Exterior Finishing Materials & Fixtures",
+          "description": "This segment comprises retailers and wholesalers specializing in fixed and semi-fixed components for residential interiors and exteriors. They provide bathroom suites, kitchen units, diverse flooring solutions like carpets and LVT, and a wide array of wall and floor tiles. Catering to homeowners, renovators, and trade professionals, these businesses offer comprehensive aesthetic and functional options to enhance living spaces.",
+          "companyCount": 31,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.9,
+          "graphs": []
+        },
+        {
+          "name": "Specialized IT Hardware & Software Solutions",
+          "description": "This segment includes providers and distributors of IT hardware, software, and specialized technology products. They offer comprehensive services, including deployment, support, managed IT, and asset lifecycle management to businesses, education, and specific consumers. Their distinctiveness lies in delivering value-added, tailored solutions and deep technical expertise beyond simple product resale.",
+          "companyCount": 27,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6.6,
+          "graphs": []
+        },
+        {
+          "name": "Industrial & Building Project & MRO Suppliers",
+          "description": "This segment encompasses distributors and merchants providing specialized components, materials, tools, and equipment essential for industrial, construction, and engineering projects, alongside maintenance, repair, and operations (MRO). They serve primarily B2B customers, offering specific product ranges and often integrated services like installation, fabrication, or technical support.",
+          "companyCount": 90,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 8.6,
+          "graphs": []
+        },
+        {
+          "name": "Specialty Coffee & Tea Producers & Retailers",
+          "description": "These companies specialize in producing and retailing premium hot and cold beverages, mainly specialty coffee and tea. They offer diverse ethically sourced beans, custom blends, pods, and brewing accessories to individual consumers and businesses. Distinctive for their unique processing, quality ingredients, and comprehensive customer experiences across retail, online, and wholesale channels.",
+          "companyCount": 21,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 16.7,
+          "graphs": []
+        },
+        {
+          "name": "Convenience Food & Ready Meal Manufacturing",
+          "description": "This segment manufactures and supplies a wide array of ready-to-eat or ready-to-heat convenience food products. Offerings include pre-packaged meals, sandwiches, salads, sushi, microwaveable pots, and frozen ready meals, spanning diverse cuisines. They serve consumers, retailers, and catering, distinguished by a focus on efficient production of high-quality, quick-serve food solutions with innovative packaging.",
+          "companyCount": 87,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 13.3,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Food & Beverage Hospitality Providers",
+          "description": "These businesses integrate food and beverage production with comprehensive hospitality services. They provide prepared meals, often including proprietary beverages, and manage diverse venues like restaurants, pubs, and hotels. Serving consumers, corporate clients, and institutions, they are distinctive for their tailored experiences, emphasis on quality ingredients, and end-to-end service delivery within a single operational framework.",
+          "companyCount": 105,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 13.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Protein & Tailored Ingredient Manufacturing",
+          "description": "This segment manufactures diverse protein-based foods and specialized ingredients, catering to retail, foodservice, and other manufacturers. They offer traditional meat, plant-based alternatives, animal nutrition, and by-product-derived components. Distinctive for their tailored product development, specific dietary certifications, and focus on sustainable, traceable, or authentic sourcing.",
+          "companyCount": 67,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11.2,
+          "graphs": []
+        },
+        {
+          "name": "Fresh & Prepared Produce and Floral Supply",
+          "description": "These businesses specialize in cultivating, sourcing, and processing fresh, perishable produce like ready-to-eat salads, prepared fruits/vegetables, berries, and mushrooms, alongside floral bouquets. They deliver high-quality, convenient products directly to major retailers, foodservice, and wholesalers, distinguishing themselves through vertical integration and efficient cold chain management.",
+          "companyCount": 21,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Artisanal & Luxury Alcoholic Beverage Production",
+          "description": "This segment manufactures artisanal and luxury alcoholic beverages like craft spirits and premium sparkling wines, utilizing specialized methods and unique ingredients. They target discerning consumers in high-end markets, distinctive for their commitment to exceptional craftsmanship, immersive brand experiences, and lifestyle offerings.",
+          "companyCount": 26,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 11,
+          "graphs": []
+        },
+        {
+          "name": "Food Ingredients & Flavor Solutions",
+          "description": "These companies specialize in manufacturing and supplying diverse food ingredients, natural flavors, and functional blends. They provide essential components like sweet and savory ingredients, natural extracts, and plant-based food colors to food and beverage manufacturers. Their distinctiveness lies in being B2B suppliers, enabling other producers to create and enhance finished food products with specific taste, texture, and nutritional profiles.",
+          "companyCount": 44,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.1,
+          "graphs": []
+        },
+        {
+          "name": "Airport & Aviation Support Services",
+          "description": "These companies manage and operate diverse airport facilities, providing comprehensive infrastructure for commercial passenger, cargo, and private aviation. They offer an integrated ecosystem of airside and landside services, including ground handling, MRO, FBO, and commercial development, acting as multi-faceted aviation hubs supporting a broad spectrum of flight operations and related businesses.",
+          "companyCount": 36,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 12.9,
+          "graphs": []
+        },
+        {
+          "name": "Temperature-Controlled Logistics for Perishable & Regulated Goods",
+          "description": "These companies provide specialized multi-temperature logistics, warehousing, and distribution for perishable and sensitive goods. They offer ambient, chilled, and frozen storage and transportation, often integrating value-added services like co-packing and regulatory compliance for sectors including food, beverage, and pharmaceuticals. Their core strength is ensuring product integrity and safety across complex, compliant supply chains.",
+          "companyCount": 43,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 12.3,
+          "graphs": []
+        },
+        {
+          "name": "Operational Site Logistics & Event Services",
+          "description": "This segment provides comprehensive operational logistics and support for complex sites and events. Services include specialized crewing, temporary infrastructure, material transport, traffic management, and security, often involving heavy equipment. They serve construction, event, and infrastructure projects, offering tailored solutions for dynamic, large-scale operational environments.",
+          "companyCount": 43,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.8,
+          "graphs": []
+        },
+        {
+          "name": "Integrated E-commerce Fulfillment & Delivery",
+          "description": "These companies offer comprehensive, technology-driven logistics solutions specifically for e-commerce and multi-channel retail. They provide end-to-end services including warehousing, order fulfillment, last-mile delivery, and reverse logistics. Their platforms enhance customer experience, optimize operational efficiency, and support global market expansion.",
+          "companyCount": 45,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Project & Complex Cargo Logistics",
+          "description": "These providers offer end-to-end multimodal freight forwarding and integrated supply chain solutions, specializing in complex, oversized, heavy-lift, or high-value project cargo across air, ocean, and land. They serve clients requiring intricate planning, specialized equipment, and extensive customs compliance for challenging international shipments. Their distinction lies in delivering bespoke solutions supported by advanced technology and deep expertise.",
+          "companyCount": 64,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.1,
+          "graphs": []
+        },
+        {
+          "name": "Commercial Maritime Operational & Support Services",
+          "description": "These companies offer comprehensive operational, technical, and commercial support for the global maritime industry. They provide essential services like vessel management, port agency, offshore logistics, marine fueling, and critical market intelligence. Their distinction lies in enabling safe, efficient, and compliant operations for ship owners, charterers, and energy companies.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.3,
+          "graphs": []
+        },
+        {
+          "name": "Public & Contracted Road Passenger Transport",
+          "description": "This segment includes operators of scheduled public and contracted road passenger transport, such as bus, tram, and coach services. They provide essential daily commuting, school, and specialized group travel, enhanced by digital ticketing, real-time tracking, and journey planning tools. Their distinctiveness lies in providing accessible, reliable, and tech-driven last-mile and regional mobility solutions.",
+          "companyCount": 45,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.9,
+          "graphs": []
+        },
+        {
+          "name": "Commercial Vehicle & Specialized Equipment Solutions",
+          "description": "This segment provides comprehensive commercial vehicle and specialized equipment solutions. They offer sale, rental, bespoke manufacturing, maintenance, repair, and fleet management for industries like construction, logistics, and waste management. Their distinction is delivering end-to-end heavy-duty vehicle assets and integrated support services to optimize B2B operational efficiency.",
+          "companyCount": 60,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Managed & Specialized Business Travel & Logistics",
+          "description": "These companies offer comprehensive, managed travel, accommodation, and ground transportation solutions for businesses. They specialize in complex logistics for niche industries like media, humanitarian aid, or corporate events. Distinctive for leveraging proprietary technology and extensive networks to deliver highly customized, 24/7 operational travel management.",
+          "companyCount": 32,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Ecological Restoration and Biodiversity Net Gain Solutions",
+          "description": "These organizations specialize in ecological restoration and habitat creation, providing services like biodiversity units, habitat banks, and rewilding initiatives. They serve developers for Biodiversity Net Gain compliance, landowners, and businesses seeking measurable environmental impact. Their distinctiveness lies in actively restoring ecosystems and offering market-based solutions for biodiversity gains.",
+          "companyCount": 50,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.2,
+          "graphs": []
+        },
+        {
+          "name": "Water Infrastructure & Environmental Health",
+          "description": "This segment specializes in water management, hygiene, and infrastructure. They provide Legionella control, IoT-enabled monitoring, engineering design, and asset management for potable and wastewater systems. Serving water utilities, commercial, and industrial clients, they ensure water quality, compliance, and resilience using advanced technology and green engineering.",
+          "companyCount": 124,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.3,
+          "graphs": []
+        },
+        {
+          "name": "Leisure & Lifestyle Property Development & Management",
+          "description": "This segment develops, operates, and manages specialized properties for leisure and holiday-centric living. They offer diverse accommodations, including holiday homes, rentals, and marine berths, complemented by extensive recreational facilities. Distinctively, they create integrated destinations providing comprehensive services and amenities that cater to recreational lifestyles and unique leisure experiences.",
+          "companyCount": 97,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.6,
+          "graphs": []
+        },
+        {
+          "name": "New Development Sales & Consultancy Services",
+          "description": "These firms provide comprehensive services for new property developments, encompassing strategic planning, design, and land acquisition. They offer specialized sales, marketing, and agency services for new build residential and commercial properties. Distinctively, they leverage digital visualization and proptech to streamline development and sales processes for developers and buyers.",
+          "companyCount": 264,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Senior Living & Care Services",
+          "description": "This segment encompasses providers of integrated senior living and care solutions. They offer diverse accommodation, from independent and assisted living to specialized care homes, alongside comprehensive care services and lifestyle amenities. Their distinction lies in fostering independence, community, and personalized support for older adults, enhancing their quality of life.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 10,
+          "graphs": []
+        },
+        {
+          "name": "Social & Supported Affordable Housing",
+          "description": "These are social landlords and housing associations offering affordable rental and ownership homes, uniquely integrated with comprehensive support services for well-being. They serve vulnerable individuals and low-income communities, providing financial, health, and employment assistance alongside housing management and new development.",
+          "companyCount": 185,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.9,
+          "graphs": []
+        },
+        {
+          "name": "Vertical Transportation & Accessibility Solutions",
+          "description": "These companies specialize in the design, manufacture, installation, and maintenance of vertical transportation systems including elevators, stairlifts, and platform lifts. They serve residential, commercial, industrial, and specialized markets, focusing on enhancing mobility, accessibility, and material handling. Their distinction is providing integrated, full lifecycle solutions for safe and efficient vertical movement across diverse environments.",
+          "companyCount": 17,
+          "medianGrowthScore": 0.018,
+          "medianEmployeeCagr": 14.3,
+          "graphs": []
+        },
+        {
+          "name": "Critical Industrial & Utility Infrastructure Solutions",
+          "description": "These companies provide specialized engineering, installation, and maintenance services for critical mechanical, electrical, and control systems across industrial, commercial, and utility sectors. They deliver bespoke power distribution, high-integrity piping, boiler systems, and subsea infrastructure. Their distinction lies in offering integrated, custom-engineered solutions for the reliable and efficient operation of essential assets in highly regulated environments.",
+          "companyCount": 123,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.9,
+          "graphs": []
+        },
+        {
+          "name": "Industrial Processing & Packaging Systems",
+          "description": "These companies provide specialized machinery, materials, and integrated solutions for industrial processing, packaging, and printing applications. Products include food processing equipment, bottling lines, packaging films, and printing presses. Serving diverse sectors like food, retail, and manufacturing, they offer customized, sustainable systems to optimize production efficiency, product protection, and brand presentation.",
+          "companyCount": 57,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 12.1,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Component Manufacturing & Advanced Material Processing",
+          "description": "This segment comprises companies manufacturing high-precision, performance-critical components. They employ advanced processes like specialized casting, forging, CNC machining, additive manufacturing, and composite fabrication. Serving demanding sectors such as aerospace, high-end automotive, and power generation, they deliver custom-engineered solutions using advanced materials and complex geometries for critical applications.",
+          "companyCount": 97,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.2,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Environmental Control & Thermal Management Systems",
+          "description": "These companies design, manufacture, install, and service advanced environmental control and thermal management systems. They provide specialized HVAC, refrigeration, ventilation, and heat transfer equipment for maintaining precise conditions across industrial, critical infrastructure, commercial, and mobile applications, ensuring optimal performance, safety, and efficiency.",
+          "companyCount": 53,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.7,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Measurement & Analytical Instrumentation",
+          "description": "This segment encompasses companies providing precision instrumentation, analytical systems, and specialized testing solutions. They develop and supply advanced equipment for accurate measurement, monitoring, and quality control of physical and chemical parameters in laboratories, industrial processes, and critical infrastructure. These solutions enable data-driven insights and ensure compliance and operational safety.",
+          "companyCount": 52,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8,
+          "graphs": []
+        },
+        {
+          "name": "Precision Engineered Industrial Components and Fasteners",
+          "description": "This cluster provides specialized, high-performance industrial components and fastening solutions. They offer custom-designed precision bearings, advanced polymer motion parts, custom clamping systems, and various industrial fasteners, often utilizing advanced materials. Serving demanding sectors like aerospace, medical, and heavy industry, they deliver tailored solutions for critical, high-load, or high-precision applications.",
+          "companyCount": 35,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8,
+          "graphs": []
+        },
+        {
+          "name": "Commercial & Specialized Transport Equipment & Support",
+          "description": "This segment features companies providing integrated solutions for commercial transport. They specialize in the sales, rental, and servicing of heavy-duty trucks, vans, and a diverse range of specialized trailers. Offerings include vehicle-mounted equipment like cranes and hookloaders, and electric tugs for efficient load movement, supported by comprehensive after-sales care, parts, and bespoke modifications.",
+          "companyCount": 53,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 7.8,
+          "graphs": []
+        },
+        {
+          "name": "Small Satellite Systems & Data Services",
+          "description": "This segment focuses on the development, launch, and operation of small satellites, along with providing data services and applications derived from them. They serve commercial, government, and research customers, offering cost-effective and flexible solutions for space access. Distinctively, these companies enable high-frequency insights and global connectivity through innovative, compact satellite technologies and sustainable launch solutions.",
+          "companyCount": 6,
+          "medianGrowthScore": 0.018,
+          "medianEmployeeCagr": 12.3,
+          "graphs": []
+        },
+        {
+          "name": "Defense Intelligence, Surveillance, and Communication Systems",
+          "description": "These firms provide advanced electronic, sensor, and communication systems for defense and national security. They deliver solutions for intelligence, surveillance, reconnaissance (ISR), and secure information exchange, enhancing situational awareness and decision-making. Their distinctiveness lies in integrating advanced RF, electro-optical, and AI technologies for demanding operational environments and military platforms.",
+          "companyCount": 20,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 9.6,
+          "graphs": []
+        },
+        {
+          "name": "Advanced Performance Engineering & Manufacturing",
+          "description": "These companies specialize in cutting-edge engineering design, advanced manufacturing, and integration services for high-performance systems. They develop complex components, subsystems, and novel propulsion technologies using advanced materials like composites, often leveraging expertise from motorsport. Serving demanding sectors like aerospace and defense, they deliver innovative, custom solutions for extreme operational environments.",
+          "companyCount": 51,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 9.5,
+          "graphs": []
+        },
+        {
+          "name": "Aerospace Aftermarket & Operational Services",
+          "description": "These companies provide essential services for the entire operational lifecycle of aerospace assets, encompassing maintenance, repair, overhaul (MRO), parts logistics, ground handling, and specialized aerial operations like drones. Serving airlines, private operators, and defense, they ensure efficient, compliant, and cost-effective air mobility solutions post-manufacturing.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.9,
+          "graphs": []
+        },
+        {
+          "name": "Ground Combat Support & Soldier Systems",
+          "description": "This segment comprises companies delivering specialized ground combat support and soldier modernization systems. They provide essential products such as tactical engineering equipment, ballistic protection, explosive ordnance disposal services, and integrated personal gear. Primarily serving military forces and security organizations, these firms enhance operational mobility, survivability, and mission effectiveness in ground warfare and challenging threat environments.",
+          "companyCount": 7,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 8.3,
+          "graphs": []
+        },
+        {
+          "name": "Academy Trusts & Integrated Educator Development",
+          "description": "These Multi-Academy Trusts and school networks provide direct K-12 education across various school phases. Distinctively, they also offer comprehensive, integrated teacher training programs and professional development, including Initial Teacher Training (ITT), Qualified Teacher Status (QTS), and National Professional Qualifications (NPQs) for their own staff and the broader education sector.",
+          "companyCount": 54,
+          "medianGrowthScore": 0.023,
+          "medianEmployeeCagr": 19,
+          "graphs": []
+        },
+        {
+          "name": "Organized Sports & Active Child Development",
+          "description": "This segment provides structured programs for physical activity, sports skill development, and holistic child well-being, from early years to youth. Offerings include coaching, competition frameworks, facilities for diverse sports, and activity-rich early education. Distinctive for fostering physical literacy, talent pathways, and healthy lifestyles through formalized, often governed, developmental initiatives.",
+          "companyCount": 57,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 14.7,
+          "graphs": []
+        },
+        {
+          "name": "Neurodevelopmental & Special Educational Needs Services",
+          "description": "These organizations provide specialized education, therapeutic interventions, and comprehensive care for individuals with neurodevelopmental disorders, learning disabilities, and complex special educational needs. They offer tailored programs, residential/supported living, and integrated therapies to foster independence and well-being. Serving children, young people, and adults, their distinctive approach combines academic, social-emotional, and clinical support for community integration.",
+          "companyCount": 70,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 14.5,
+          "graphs": []
+        },
+        {
+          "name": "Post-16 Academic & Vocational Colleges",
+          "description": "These institutions provide specialized post-16 education, offering A-Levels, BTECs, and T-Levels to students aged 16-19. They prepare learners for university, apprenticeships, or employment through comprehensive academic, pastoral, and career support within a dedicated college environment. Many also offer adult education and facility rentals.",
+          "companyCount": 33,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 13.9,
+          "graphs": []
+        },
+        {
+          "name": "Holistic K-12 & Pre-University Institutions",
+          "description": "These institutions provide comprehensive K-12 and pre-university education, offering rigorous academic curricula, often leading to recognized qualifications. They serve day and boarding students from early years through age 19. Distinctive for their holistic development approach, extensive co-curricular programs, strong pastoral care, and advanced facilities, they prepare students for higher education or specialized career pathways.",
+          "companyCount": 225,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Professional & Vocational Training",
+          "description": "This segment comprises providers of specialized professional and vocational training, including digital upskilling platforms and apprenticeships. They offer targeted skills development, certifications, and compliance training for individuals and corporate workforces across industries like engineering, cybersecurity, and creative arts. Their distinctive focus is practical, career-oriented competency building often leveraging blended and technology-driven learning.",
+          "companyCount": 245,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Workforce Skills Development & Specialized Staffing",
+          "description": "This cluster provides specialized recruitment and staffing services for industries like education, healthcare, and logistics, along with comprehensive workforce development programs. They offer vocational training, professional development, and certifications to equip individuals for specific roles, ensuring a skilled talent pool for employers and enhanced career opportunities for job seekers.",
+          "companyCount": 89,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.4,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Learning Content, Tutoring & Pathway Guidance",
+          "description": "This segment offers diverse educational content and personalized tutoring, often via digital platforms. They provide K-12 to higher education materials, online systems for exam preparation, career exploration, and university admissions. Serving students, educators, and institutions, they integrate direct learning with crucial guidance for academic and professional pathways.",
+          "companyCount": 79,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 9.4,
+          "graphs": []
+        },
+        {
+          "name": "Cultural Performance & Education Hubs",
+          "description": "These are cultural institutions operating venues like theatres, museums, and music halls, offering diverse live performances, exhibitions, and educational programs in arts, history, and science. They serve the general public and students, distinctly blending entertainment and structured learning experiences within dedicated physical spaces.",
+          "companyCount": 73,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.4,
+          "graphs": []
+        },
+        {
+          "name": "Performing Arts Vocational Training & Development",
+          "description": "These institutions offer comprehensive, vocational, and developmental education in diverse performing arts disciplines like music, dance, acting, musical theatre, and production arts. They provide intensive, industry-focused training for aspiring professionals, young talents, and teachers. Distinctively, their programs emphasize practical skill mastery, performance opportunities, and career readiness through hands-on learning.",
+          "companyCount": 26,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.7,
+          "graphs": []
+        },
+        {
+          "name": "Professional & Industry Standards and Lifelong Learning",
+          "description": "These organizations provide specialized training, continuous professional development, and accreditation services for professionals across specific industries. They set and uphold industry standards, offer certifications, and foster professional communities through networking, events, and resources. Their focus is on career progression and maintaining high competency within distinct professional fields.",
+          "companyCount": 243,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.4,
+          "graphs": []
+        },
+        {
+          "name": "Comprehensive Vocational & Further Education Institutions",
+          "description": "These institutions offer a wide range of academic, vocational, and higher education programs, alongside extensive apprenticeships and adult learning courses. They serve young people, adult learners, and businesses by emphasizing practical, industry-aligned skills and career readiness. Their distinctiveness lies in integrating comprehensive curriculum with strong employer partnerships and work-based learning opportunities, often including commercial services.",
+          "companyCount": 149,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.9,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Residential and Nursing Care Homes",
+          "description": "These providers offer comprehensive long-term and short-term residential and nursing care. They deliver 24-hour support, including specialized dementia, palliative, and complex medical services for elderly individuals or those with significant health needs. Their focus is on person-centered care within purpose-built environments, ensuring dignity and advanced clinical support.",
+          "companyCount": 70,
+          "medianGrowthScore": 0.032,
+          "medianEmployeeCagr": 23.6,
+          "graphs": []
+        },
+        {
+          "name": "Specialized In-Home Care and Support",
+          "description": "These companies deliver comprehensive in-home personal care, live-in support, and specialized nurse-led clinical interventions for individuals with complex medical needs or disabilities. They empower clients of all ages to live independently and comfortably in their own homes. A key differentiator is often their provision of qualified healthcare staff to other care providers, extending their impact.",
+          "companyCount": 69,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 13.7,
+          "graphs": []
+        },
+        {
+          "name": "Ambulatory Specialty & Diagnostic Services",
+          "description": "Ambulatory Specialty & Diagnostic Services offer specialized medical consultations, advanced diagnostic imaging (MRI, CT), and elective procedures. Delivered in outpatient clinics and centers, they provide rapid access to high-quality specialist expertise for patients needing focused care. This model optimizes efficiency and patient pathways beyond general primary care.",
+          "companyCount": 175,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 12.6,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Specialist Care & Therapeutic Education for Vulnerable Individuals",
+          "description": "These providers offer integrated specialist care, education, and therapeutic support through residential settings, independent schools, and foster care programs. They serve vulnerable children, young people, and adults with complex needs, disabilities, or trauma histories. Their approach is holistic, trauma-informed, and person-centered, aiming to foster independence, well-being, and social integration.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 12.5,
+          "graphs": []
+        },
+        {
+          "name": "Community & Residential Support for Chronic Disabilities",
+          "description": "These organizations provide highly personalized residential, supported living, and community-based services. They offer comprehensive care, daily living assistance, and therapeutic support for individuals with chronic disabilities, including learning disabilities, autism, acquired brain injuries, and complex mental health needs. Their distinctive approach promotes independence, community integration, and personal growth through bespoke, person-centred care plans.",
+          "companyCount": 71,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 12.2,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Social & Health Support for Vulnerable Populations",
+          "description": "These organizations provide integrated health and social care, including housing, mental health, substance use recovery, and life skills programs. They serve marginalized individuals facing complex, co-occurring challenges like homelessness, addiction, and trauma. Their distinctive, person-centered approach delivers holistic support for long-term recovery and social reintegration.",
+          "companyCount": 78,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.6,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Mental Health & Neurodevelopmental Care",
+          "description": "These providers offer expert diagnostic assessments for neurodevelopmental conditions (e.g., ADHD, ASD) and a wide range of mental health issues. They deliver evidence-based psychological therapies, psychiatric care, and often include Employee Assistance Programmes. Serving individuals, families, and corporations, they provide tailored, multidisciplinary support through various delivery models.",
+          "companyCount": 37,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 10.5,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Pre-Hospital & Emergency Medical Services",
+          "description": "These organizations deliver critical pre-hospital emergency and urgent care, offering air and ground ambulance transport, specialized patient transfers, and comprehensive event medical cover. They serve individuals, public and private healthcare providers, and event organizers, acting as crucial links in the immediate care pathway. Many also provide extensive medical training and repatriation services.",
+          "companyCount": 33,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Social Care & Supported Housing",
+          "description": "These organizations provide affordable housing integrated with social care and comprehensive support services, offering residential and supported living. They primarily serve vulnerable populations, including older adults, individuals with disabilities, and those experiencing homelessness, combining property management with health, welfare, and financial assistance to foster independence and well-being.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10.6,
+          "graphs": []
+        },
+        {
+          "name": "Community Wellness & Recreation Hubs",
+          "description": "These organizations provide comprehensive health, fitness, and recreational services within a community-focused framework. They offer facilities like gyms, pools, and sports programs, often combined with educational, cultural, and social activities. Their aim is to promote holistic well-being for diverse age groups, frequently reinvesting profits into community services.",
+          "companyCount": 41,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.8,
+          "graphs": []
+        },
+        {
+          "name": "Palliative, Hospice, and Funeral Services",
+          "description": "These organizations provide specialized palliative and hospice care, offering comprehensive medical, emotional, and spiritual support for individuals with life-limiting illnesses. They also deliver compassionate funeral and direct cremation services, alongside extensive bereavement support for families. Most operate as charities, relying on community funding and retail operations.",
+          "companyCount": 64,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11,
+          "graphs": []
+        },
+        {
+          "name": "Charitable Health Support & Advocacy",
+          "description": "These charitable organizations complement mainstream healthcare by providing targeted patient and family support, funding crucial medical research, and advocating for improved health outcomes. They offer specialized services, including disease-specific guidance, paediatric palliative care, and direct financial or equipment aid, often operating through community programs and grants.",
+          "companyCount": 116,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.5,
+          "graphs": []
+        },
+        {
+          "name": "Healthcare Staffing & Workforce Solutions",
+          "description": "These companies provide comprehensive healthcare staffing and workforce solutions, supplying qualified medical, nursing, and support professionals. They serve public and private healthcare providers, including hospitals and care homes, to meet diverse temporary and permanent staffing needs. Their distinctiveness lies in rapidly deploying vetted, compliant professionals, often with specialized training, ensuring continuous, high-quality patient care.",
+          "companyCount": 65,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 7.1,
+          "graphs": []
+        },
+        {
+          "name": "Specialty Industrial & Agricultural Minerals",
+          "description": "These companies specialize in mining and processing non-metallic industrial minerals such as polyhalite, salt, and natural soda ash. They provide specialized multi-nutrient fertilizers for agricultural markets and critical chemical inputs for diverse industrial sectors. Their distinction lies in transforming unique mineral deposits into high-value chemical and agricultural products, often using advanced processing.",
+          "companyCount": 8,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 11.3,
+          "graphs": []
+        },
+        {
+          "name": "Construction Aggregates & Building Materials Production",
+          "description": "These companies specialize in the quarrying, processing, and supply of essential raw and manufactured building materials. They provide aggregates, asphalt, concrete, cement, sand, and recycled products for infrastructure and construction. Their distinction lies in integrating quarrying operations with the production of diverse, quality-controlled materials for various construction applications.",
+          "companyCount": 7,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 11,
+          "graphs": []
+        },
+        {
+          "name": "High-Integrity Specialty Metal Component Manufacturing",
+          "description": "This cluster specializes in manufacturing high-integrity, engineered metal components and specialty alloys. They provide custom forgings, castings, and advanced material solutions in diverse metals for critical sectors like aerospace, defense, nuclear, and oil & gas. Their distinction is advanced metallurgical expertise, sophisticated manufacturing processes, and stringent quality control for demanding, high-performance applications.",
+          "companyCount": 9,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.4,
+          "graphs": []
+        },
+        {
+          "name": "Metals and Raw Materials Trading & Market Infrastructure",
+          "description": "This segment comprises entities focused on the global trading, merchanting, and supply chain management of diverse metal and raw material commodities. They provide essential services like logistics, financing, market intelligence, and quality assurance to producers, consumers, and investors. Their distinctive role is facilitating the efficient movement, valuation, and risk management of these critical resources.",
+          "companyCount": 17,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6,
+          "graphs": []
+        },
+        {
+          "name": "Private Markets Investment Management",
+          "description": "These firms provide capital and strategic expertise through direct investments in private companies and specialized assets. Utilizing strategies like venture capital, private equity, growth equity, and private debt, they target long-term value creation for institutional and accredited investors in illiquid markets.",
+          "companyCount": 72,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.6,
+          "graphs": []
+        },
+        {
+          "name": "Comprehensive Insurance & Reinsurance Solutions",
+          "description": "These entities provide a comprehensive suite of insurance and reinsurance solutions, spanning underwriting, brokering, and claims management. They offer tailored policies for a wide range of personal, commercial, and specialized risks, including credit, political, and life portfolio consolidation. Serving individuals, businesses, and other insurers, they leverage deep expertise to facilitate risk transfer and manage liabilities.",
+          "companyCount": 149,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.2,
+          "graphs": []
+        },
+        {
+          "name": "Financial Market Data, Infrastructure & RegTech Solutions",
+          "description": "These firms provide advanced technology, data, and analytics for capital markets and investment management. They offer comprehensive market data, low-latency infrastructure, and AI-powered RegTech solutions. Serving financial institutions and market participants, they enhance operational efficiency, transparency, and compliance across complex financial processes.",
+          "companyCount": 79,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 4.8,
+          "graphs": []
+        },
+        {
+          "name": "Mortgage & Property Finance Facilitation",
+          "description": "These firms provide expert advisory, brokerage, and specialist lending services for diverse property finance, including mortgages, buy-to-let, bridging, and development loans. They serve homeowners, investors, and businesses, often navigating complex financial scenarios. Their distinction lies in delivering tailored funding and protection solutions through market expertise and technology.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 6.8,
+          "graphs": []
+        },
+        {
+          "name": "Global Payment & Financial Operations Infrastructure",
+          "description": "These companies provide advanced platforms and APIs for businesses to manage global payment processing, multi-currency accounts, and financial operations. They offer real-time cross-border payments, FX, and embedded finance solutions, often leveraging Open Banking, AI, or blockchain. They serve businesses and financial institutions needing scalable, compliant, and efficient infrastructure for global money movement.",
+          "companyCount": 97,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10,
+          "graphs": []
+        },
+        {
+          "name": "Tech-Enabled Specialized Lending and Asset Finance",
+          "description": "These companies provide tech-enabled lending, financing, and leasing solutions to consumers and businesses. They offer a range of products including personal loans, credit cards, asset finance for equipment, vehicles, and specialized assets, and invoice finance. Their services aim to provide flexible access to capital and assets through digital platforms, often targeting underserved markets or specific asset classes.",
+          "companyCount": 88,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 6.6,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Deposit & Lending Providers",
+          "description": "These financial institutions focus on tailored savings accounts, various mortgage products, and specialized lending solutions. They serve distinct customer segments, including individuals, small businesses, non-profits, or niche industries like agriculture and property investors. They differentiate through relationship-based service, mutual ownership, ethical banking practices, or expertise in specific financial products or markets.",
+          "companyCount": 50,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.5,
+          "graphs": []
+        },
+        {
+          "name": "Investment & Wealth Management Platforms and Administration",
+          "description": "These companies provide critical technology platforms, outsourced administration, and specialized services for investment and wealth management. They offer white-label investment solutions, custody, asset servicing, fund administration, and comprehensive pension and trust solutions. Serving financial advisors, wealth managers, and institutional clients, they deliver the essential infrastructure and compliance-driven support to efficiently manage diverse client assets and complex financial structures.",
+          "companyCount": 56,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.5,
+          "graphs": []
+        },
+        {
+          "name": "Holistic Financial Planning & Wealth Management",
+          "description": "These firms provide holistic financial planning and wealth management, offering tailored advice on investment, retirement, estate, and tax planning. They serve individuals, families, and businesses, including high-net-worth clients, helping them achieve long-term financial security and growth. Their distinctive approach integrates comprehensive strategies with personalized guidance.",
+          "companyCount": 74,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 6.7,
+          "graphs": []
+        },
+        {
+          "name": "Institutional Derivatives Trading & Risk Management",
+          "description": "These firms provide wholesale trading, brokerage, and market-making services for diverse derivatives, including commodities, FX, equities, and digital assets, catering to institutional clients. They leverage advanced technology and deep market expertise to deliver liquidity, efficient execution, and bespoke risk management solutions, emphasizing optimal price discovery and tailored client needs.",
+          "companyCount": 56,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 8.9,
+          "graphs": []
+        },
+        {
+          "name": "Comprehensive Accounting, Tax, and Business Advisory",
+          "description": "These firms offer a full range of integrated services, including financial accounting, auditing, and tax compliance for businesses and private clients. They provide strategic business and corporate finance advisory, wealth management, and outsourced financial operations. Their distinction lies in delivering a holistic approach to financial health, growth, and regulatory adherence.",
+          "companyCount": 107,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.3,
+          "graphs": []
+        },
+        {
+          "name": "Real Estate Investment & Property Services",
+          "description": "These firms offer integrated real estate services encompassing property sales, lettings, professional property management, and strategic real estate investment and asset management. They serve individual buyers, sellers, landlords, and institutional investors. Their distinctiveness lies in combining traditional estate agency with specialized real estate asset management and related financial advice.",
+          "companyCount": 26,
+          "medianGrowthScore": 0.005,
+          "medianEmployeeCagr": 8.7,
+          "graphs": []
+        },
+        {
+          "name": "Social & Sectoral Development Finance",
+          "description": "These organizations provide funding, grants, impact investments, and specialized financial and advocacy support for social, environmental, cultural, and sectoral development initiatives. They serve underserved communities, non-profit sectors, and specific professional industries by mobilizing diverse capital sources and expertise. Their distinctive focus is on achieving specific societal and developmental outcomes, prioritizing mission impact over purely commercial financial returns.",
+          "companyCount": 40,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.3,
+          "graphs": []
+        },
+        {
+          "name": "Infant & Toddler Essentials",
+          "description": "This segment focuses on essential products for infants and toddlers, including specialized babywear, organic sleep solutions, ergonomic feeding accessories, and developmental toys. These companies cater to new and expectant parents, offering comfort, safety, and functional innovation. Many emphasize sustainable materials and personalized options for early childhood needs.",
+          "companyCount": 3,
+          "medianGrowthScore": 0.097,
+          "medianEmployeeCagr": 48.1,
+          "graphs": []
+        },
+        {
+          "name": "Activewear & Performance Sportswear",
+          "description": "This segment comprises companies designing and manufacturing activewear, athleisure, and performance sportswear. They provide versatile apparel like leggings, sports bras, and specialized sports kits, utilizing technical fabrics for comfort and enhanced athletic function. Serving fitness enthusiasts and athletes, their products distinctly blend style, comfort, and advanced performance technology for diverse physical activities.",
+          "companyCount": 11,
+          "medianGrowthScore": 0.021,
+          "medianEmployeeCagr": 22.3,
+          "graphs": []
+        },
+        {
+          "name": "Heritage British Tailored Apparel",
+          "description": "This segment features companies specializing in premium, expertly crafted menswear and accessories, including tailored wear, shirts, and knitwear. They serve discerning customers by blending rich British or Scottish heritage with modern refinement. Distinctive for their meticulous craftsmanship and use of high-quality natural materials, they offer enduring style.",
+          "companyCount": 8,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 16.6,
+          "graphs": []
+        },
+        {
+          "name": "Technical Outdoor & Adventure Gear",
+          "description": "This segment features brands producing high-performance apparel and technical equipment for outdoor and adventure activities. They offer durable, protective clothing, specialized gear like climbing hardware and sleeping bags, and accessories using advanced materials. Serving outdoor enthusiasts, adventurers, and professionals, these companies are distinguished by their focus on functionality, extreme weather protection, and often, strong environmental sustainability practices.",
+          "companyCount": 12,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 13.3,
+          "graphs": []
+        },
+        {
+          "name": "Luxury Handcrafted Footwear and Premium Accessories",
+          "description": "These companies specialize in high-end, handcrafted footwear and premium accessories. They offer exquisite shoes, bags, belts, and small leather goods, meticulously crafted from luxury materials like fine leather, silk, and cashmere. Serving discerning consumers, their distinction lies in artisanal craftsmanship, timeless design, brand heritage, and often bespoke customization services.",
+          "companyCount": 14,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialized & Managed Apparel Solutions",
+          "description": "This segment encompasses companies providing specialized apparel and comprehensive managed services for institutional and event-based needs. They design, manufacture, and supply custom workwear, uniforms, personal protective equipment, and licensed merchandise, often with branding and personalization. Services include rental, laundering, and e-commerce fulfillment, focusing on functionality, compliance, and specific client requirements.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 10,
+          "graphs": []
+        },
+        {
+          "name": "Home Textiles & Interior Furnishings",
+          "description": "These companies specialize in designing, manufacturing, and supplying a broad range of textile-based products and furnishings for residential interiors. They provide items such as luxury bath and bed linens, carpets, rugs, decorative fabrics, wallpapers, and upholstered furniture. Their focus is on enhancing home comfort and aesthetics through high-quality materials and craftsmanship for homeowners and retail clients.",
+          "companyCount": 20,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 7.9,
+          "graphs": []
+        },
+        {
+          "name": "Designer & Luxury Contemporary Apparel and Lifestyle",
+          "description": "These are premium contemporary fashion brands offering high-quality apparel and accessories for men, women, and children. They emphasize distinctive design, luxurious fabrics, meticulous craftsmanship, and often extend into lifestyle products or personalized services. Serving discerning customers, they combine modern aesthetics with superior materials and a curated brand experience.",
+          "companyCount": 75,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.5,
+          "graphs": []
+        },
+        {
+          "name": "Experiential & Themed Environment Construction",
+          "description": "These companies specialize in the design, custom fabrication, and technical installation of immersive, temporary, or themed physical environments. They provide bespoke sets, staging, advanced audio-visual, lighting, rigging solutions, and specialized thematic elements for entertainment, events, and experiential commercial spaces. Their distinction lies in integrating creative design with complex technical production and multimedia technology to create highly engaging experiences.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 16.3,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Building Protection, Envelope, & Access Solutions",
+          "description": "This cluster delivers integrated solutions encompassing active and passive fire protection, electronic security systems, and specialized building envelope components. They provide services for vertical transportation, facades, roofing, high-performance glazing, and access systems. Their focus is on ensuring comprehensive safety, security, regulatory compliance, and operational efficiency for diverse building types and their occupants.",
+          "companyCount": 64,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 13.5,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Building Systems & Lifecycle Services",
+          "description": "These companies provide end-to-end mechanical, electrical, and public health (MEP) solutions, including design, installation, commissioning, and maintenance of critical building systems. They serve commercial, industrial, residential, and specialized sectors like data centers and hospitality, ensuring optimal functionality, efficiency, and compliance. Their distinction lies in integrating advanced technologies like BIM, smart sensors, and modular prefabrication across the entire asset lifecycle.",
+          "companyCount": 142,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11.3,
+          "graphs": []
+        },
+        {
+          "name": "Groundworks, Civil & Utilities Infrastructure",
+          "description": "These companies specialize in foundational and linear infrastructure development. They provide comprehensive groundworks, earthmoving, demolition, and civil engineering services for roads, utility networks (gas, water, telecoms, power), and site preparation. Serving residential, commercial, public sector, and utility clients, they offer specialized ground treatment and environmental remediation solutions.",
+          "companyCount": 157,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.4,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Heavy Industrial & Infrastructure Engineering",
+          "description": "This segment encompasses companies delivering specialized engineering, fabrication, installation, and maintenance for complex industrial and heavy infrastructure assets. They provide solutions for structural steel, piping systems, heavy machinery, and critical subsea/offshore components. Serving highly regulated sectors like offshore energy, defence, and heavy industry, they excel in intricate, large-scale projects requiring advanced engineering and stringent standards.",
+          "companyCount": 62,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.7,
+          "graphs": []
+        },
+        {
+          "name": "Social Housing Providers & Community Developers",
+          "description": "These organizations specialize in developing, managing, and maintaining diverse affordable housing options, including rental, shared ownership, and supported living. They primarily serve communities and vulnerable populations, offering comprehensive landlord services and property maintenance. Distinctively, they operate with a strong social mission, reinvesting surpluses into community development, resident support, and sustainable housing initiatives to foster thriving neighborhoods.",
+          "companyCount": 33,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 8,
+          "graphs": []
+        },
+        {
+          "name": "Built Environment Project & Cost Management Consultancy",
+          "description": "These consultancies provide comprehensive project, cost, and design management services, including quantity surveying, engineering, and digital solutions. They serve clients across the entire built environment lifecycle, from real estate development to complex infrastructure projects. Their distinctive expertise offers independent oversight and strategic advice, ensuring optimal project delivery, cost efficiency, and risk mitigation.",
+          "companyCount": 64,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.8,
+          "graphs": []
+        },
+        {
+          "name": "Multi-disciplinary Engineering & Environmental Consulting",
+          "description": "These firms are multi-disciplinary engineering and environmental consultancies, providing expert design, planning, and advisory services for civil, structural, and environmental aspects. They serve diverse public and private clients across infrastructure, urban development, and building projects. Distinctively, they deliver sustainable, innovative, and integrated solutions from feasibility to supervision.",
+          "companyCount": 58,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.5,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Residential & Community Development",
+          "description": "These developers specialize in integrated residential and mixed-use community creation. They design, construct, and often manage diverse properties like homes, build-to-rent, student, and affordable housing, incorporating amenities and sustainable practices. Serving individuals, institutional investors, and public bodies, they distinguish themselves by comprehensive involvement from land acquisition to fostering vibrant, managed living environments.",
+          "companyCount": 79,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6.6,
+          "graphs": []
+        },
+        {
+          "name": "Multi-Sector Architectural Design & Masterplanning",
+          "description": "This segment comprises multi-disciplinary architectural and design firms providing comprehensive services including architectural, interior, and urban masterplanning. They craft sustainable, functional, and aesthetically pleasing built environments for diverse sectors like residential, commercial, healthcare, and civic. Their distinctive focus is integrating design excellence, innovative solutions, and strategic planning to create lasting, community-centric spaces.",
+          "companyCount": 62,
+          "medianGrowthScore": 0.005,
+          "medianEmployeeCagr": 3.8,
+          "graphs": []
+        },
+        {
+          "name": "Digital Solutions for Critical Infrastructure Optimization",
+          "description": "These companies provide specialized software platforms, data analytics, and IoT solutions to manage and optimize critical infrastructure. They serve energy, utility, and transportation sectors, enabling efficiency, resilience, and sustainability by leveraging advanced digital technologies and data-driven insights for complex operational challenges.",
+          "companyCount": 81,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 11,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Healthcare Management Platforms & AI Solutions",
+          "description": "These companies develop and deploy integrated digital platforms and AI-driven software solutions for healthcare providers, payors, and related organizations. They streamline clinical, administrative, and patient engagement workflows, leveraging tools like EHRs, AI diagnostics, and predictive analytics. Their distinct focus is on enhancing operational efficiency and improving patient outcomes across the human healthcare continuum.",
+          "companyCount": 51,
+          "medianGrowthScore": 0.022,
+          "medianEmployeeCagr": 12.6,
+          "graphs": []
+        },
+        {
+          "name": "Industry-Specific Operational Software & Platforms",
+          "description": "This cluster provides specialized software and platforms to optimize core operational processes within specific industries, such as insurance and transportation. They offer solutions for asset management, risk assessment, real-time tracking, and workflow automation. Their distinctive focus is on delivering industry-tailored tools that enhance efficiency and compliance for businesses and public services.",
+          "companyCount": 284,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 9,
+          "graphs": []
+        },
+        {
+          "name": "Enterprise AI & Intelligent Automation Solutions",
+          "description": "This segment consists of companies delivering advanced AI, Machine Learning, and Intelligent Automation solutions. They provide strategic consulting, custom software development, and specialized platforms to drive digital transformation and optimize business processes for enterprises. Their distinctive focus is on leveraging data-driven insights and automation to enhance efficiency, streamline complex workflows, and solve critical business challenges.",
+          "companyCount": 178,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 9.7,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Human Capital Management & Employee Experience Platforms",
+          "description": "These companies provide AI-driven, integrated software platforms for comprehensive Human Capital Management. They streamline HR operations, talent acquisition, compensation, and benefits, focusing on enhancing employee experience, wellbeing, and engagement. Serving enterprises and mid-market organizations, these solutions deliver data-driven insights for strategic people decisions and ensure compliance across the employee lifecycle.",
+          "companyCount": 59,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 9.2,
+          "graphs": []
+        },
+        {
+          "name": "Learning, Training, and Assessment Technologies",
+          "description": "These companies provide digital platforms, content, and software for learning, training, and assessment. Offerings include LMS, LXP, interactive courses, and assessment tools, serving K-12, higher education, and corporate clients. They enhance knowledge acquisition, skill development, and performance evaluation through technology-driven educational resources.",
+          "companyCount": 62,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 10.3,
+          "graphs": []
+        },
+        {
+          "name": "Holistic Managed IT & Cyber-Resilience Solutions",
+          "description": "This segment delivers comprehensive managed IT services, advanced cybersecurity, and integrated cloud solutions to businesses. They focus on proactive infrastructure support, data protection, and business continuity, often including strategic consulting and digital transformation guidance. This ensures operational efficiency and robust cyber resilience for their clients.",
+          "companyCount": 228,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 6.8,
+          "graphs": []
+        },
+        {
+          "name": "Advanced & Integrated Security Solutions for Critical Environments",
+          "description": "These companies deliver advanced cybersecurity, digital identity, and integrated physical security solutions. They leverage AI analytics, secure cloud platforms, and high-assurance architectures to protect critical infrastructure, government, and large enterprises. Their offerings ensure resilience, stringent compliance, and operational intelligence against sophisticated threats.",
+          "companyCount": 79,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 8,
+          "graphs": []
+        },
+        {
+          "name": "Financial Technology Infrastructure Platforms",
+          "description": "This cluster comprises companies delivering comprehensive financial technology infrastructure and platforms. They empower financial institutions and businesses with core banking systems, payment orchestration, and Banking-as-a-Service capabilities. These solutions facilitate digital transformation, embedded finance, and the launch of new financial products, often leveraging cloud-native, API-first, AI, Open Banking, and blockchain technologies.",
+          "companyCount": 78,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.1,
+          "graphs": []
+        },
+        {
+          "name": "Real Estate & Hospitality Management Software",
+          "description": "These companies provide comprehensive software platforms and digital tools for businesses operating in the real estate, property management, and hospitality sectors. They streamline core operations like transactions, bookings, asset management, and customer relations, enhancing efficiency, guest experience, and revenue generation. Their solutions empower various stakeholders, from property owners and estate agents to hotel managers and F&B operators.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 7.8,
+          "graphs": []
+        },
+        {
+          "name": "Enterprise Financial Technology & Data Solutions",
+          "description": "This cluster comprises companies delivering advanced software platforms, specialized data solutions, and AI-driven tools to financial institutions. They automate complex operational, compliance, and risk management workflows, and provide critical market intelligence. Their offerings enhance efficiency, ensure regulatory adherence, and enable data-driven decision-making across the financial services sector.",
+          "companyCount": 114,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 6.8,
+          "graphs": []
+        },
+        {
+          "name": "Digital Marketing, AdTech, and Customer Experience Solutions",
+          "description": "These companies provide advanced digital marketing, advertising technology (AdTech), and customer experience solutions. They offer strategic consulting, platform development, and campaign execution leveraging AI and data analytics to optimize digital interactions, brand visibility, and customer engagement across various online channels. They primarily serve brands and businesses seeking to enhance their digital presence and marketing performance.",
+          "companyCount": 151,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 4.9,
+          "graphs": []
+        },
+        {
+          "name": "Digital Interactive Entertainment & Sports Technology",
+          "description": "These companies develop digital platforms, software, and content for interactive entertainment, spanning video games, iGaming, and sports betting. They also provide advanced data analytics and wearable technologies for sports performance. Serving consumers, game studios, operators, and sports organizations, they leverage digital innovation to drive engagement, performance, and monetization.",
+          "companyCount": 55,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 5.2,
+          "graphs": []
+        },
+        {
+          "name": "Digital Research & Insights Platforms",
+          "description": "These platforms and services specialize in gathering, processing, and analyzing diverse data, including human-derived feedback, expert knowledge, and web-sourced information. They provide market intelligence, consumer insights, and user research tools for businesses. This enables data-driven decisions for product development, marketing, and strategic understanding of target audiences and markets.",
+          "companyCount": 55,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 4.5,
+          "graphs": []
+        },
+        {
+          "name": "Full Fibre Broadband & Infrastructure Providers",
+          "description": "This segment focuses on companies providing high-speed, reliable full fibre optic broadband. They serve residential, business, and underserved communities with direct internet access and advanced in-home Wi-Fi. Many build and operate their own fibre infrastructure, often offering wholesale access or specializing in specific geographic expansions.",
+          "companyCount": 19,
+          "medianGrowthScore": 0.019,
+          "medianEmployeeCagr": 11.8,
+          "graphs": []
+        },
+        {
+          "name": "Telecommunications & Digital Infrastructure Services",
+          "description": "This segment encompasses companies that design, build, and maintain the physical infrastructure for telecommunications and digital connectivity. They deliver end-to-end fiber optic networks, wireless infrastructure, and associated multi-utility civil engineering solutions. Serving mobile operators, property developers, and governments, they provide the essential foundational layer for modern, robust communication systems.",
+          "companyCount": 36,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.1,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Digital Infrastructure & Managed Connectivity",
+          "description": "These companies provide integrated digital infrastructure and managed connectivity solutions, including high-performance network services, data center colocation, and advanced IT management. They serve enterprises, multi-tenant properties, and specialized industries with complex requirements for secure, resilient, and optimized end-to-end connectivity.",
+          "companyCount": 27,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 5.5,
+          "graphs": []
+        },
+        {
+          "name": "Managed Business IT & Unified Communications",
+          "description": "These companies are Managed Service Providers offering integrated IT and telecommunications solutions. They provide services such as IT support, cloud management, cybersecurity, business connectivity, and unified communications platforms like VoIP and UCaaS. They serve businesses and public sector entities by managing their technology infrastructure to ensure secure, efficient, and productive operations.",
+          "companyCount": 67,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 5.9,
+          "graphs": []
+        },
+        {
+          "name": "Telecom Network & Wholesale Service Providers",
+          "description": "These providers offer specialized software, platforms, and wholesale services crucial for telecommunications and mobile network operators, and large communication service providers. They enable core network functionalities, revenue assurance, fraud protection, and data integration, often leveraging AI. Their solutions include global voice termination, signaling, and BSS/OSS, supporting the foundational infrastructure and advanced services for the global telecom ecosystem.",
+          "companyCount": 25,
+          "medianGrowthScore": 0.005,
+          "medianEmployeeCagr": 3.8,
+          "graphs": []
+        },
+        {
+          "name": "Managed IoT Connectivity for Critical Safety & Infrastructure",
+          "description": "These companies deliver secure, resilient IoT/M2M connectivity and managed platforms for critical applications. They provide specialized hardware, software, and 24/7 monitoring to sectors like healthcare, public safety, security, and critical infrastructure. Their focus on continuous, cyber-secure, real-time communication, often with analogue transition support, ensures reliable operation for vital services.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 5.9,
+          "graphs": []
+        },
+        {
+          "name": "Broadcast & Streaming Media Infrastructure & Delivery",
+          "description": "This cluster provides the technological infrastructure and services for distributing broadcast and streaming media. Offering solutions like Content Delivery Networks (CDNs), cloud/IP video transport, and platforms for live/on-demand content, they serve broadcasters and media companies. Their distinctiveness is enabling high-performance, scalable, and secure delivery of video and audio across diverse channels.",
+          "companyCount": 10,
+          "medianGrowthScore": 0.004,
+          "medianEmployeeCagr": 0.1,
+          "graphs": []
+        },
+        {
+          "name": "Digital-First & Integrated Pharmacy Care with Specialized Health Services",
+          "description": "These entities provide accessible healthcare through both digital platforms and integrated community pharmacies. They offer prescription fulfillment, at-home diagnostics, and online consultations for specialized health concerns like men's and women's health, sexual health, and weight management. Their model emphasizes convenience and discreet, direct-to-consumer delivery of medicines, tests, and wellness solutions.",
+          "companyCount": 19,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 13.2,
+          "graphs": []
+        },
+        {
+          "name": "Biopharma Innovation & Targeted Patient Solutions",
+          "description": "This segment provides advanced technologies and specialized services across the biopharmaceutical value chain. They develop AI-driven R&D tools, gene therapies, and precision diagnostics, alongside bespoke pharmaceutical manufacturing and unique patient access solutions. This cluster distinctly leverages cutting-edge innovation to deliver highly targeted and personalized healthcare interventions for specific needs.",
+          "companyCount": 45,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 6.2,
+          "graphs": []
+        },
+        {
+          "name": "Advanced Medical Devices, Biomaterials & Surgical Consumables",
+          "description": "This segment comprises companies developing and supplying advanced medical devices, specialized surgical instruments, and high-quality biomaterials. They offer solutions for diagnostics, patient monitoring, critical care, and surgical interventions, including implants, custom procedure packs, and sterile consumables. These innovations support various medical specialties, enhancing patient care and clinical operational efficiency.",
+          "companyCount": 71,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9,
+          "graphs": []
+        },
+        {
+          "name": "Biopharma Contract Research, Development & Manufacturing (CRDMO)",
+          "description": "These firms provide outsourced expertise across the drug lifecycle, including preclinical studies, clinical trial management, biometrics, and GMP manufacturing. They serve pharmaceutical and biotechnology companies, offering specialized services for R&D, formulation, and production. Their distinctiveness lies in accelerating drug discovery and development while ensuring regulatory compliance and quality.",
+          "companyCount": 53,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 6.4,
+          "graphs": []
+        },
+        {
+          "name": "Human Nutritional & Dietary Supplements Production",
+          "description": "This segment comprises companies that develop, manufacture, and distribute a wide range of human dietary supplements, including vitamins, minerals, probiotics, and specialized nutraceuticals. They target diverse health needs like immunity, gut health, and cognitive function, serving direct consumers, health professionals, and other brands through contract manufacturing. Their distinction lies in science-backed formulations, quality production, and varied product formats.",
+          "companyCount": 13,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 8.6,
+          "graphs": []
+        },
+        {
+          "name": "Public & Non-Profit Health Innovation",
+          "description": "These entities are non-profit organizations, charities, and public research institutes dedicated to advancing health. They provide funding, research infrastructure, and collaborative platforms to accelerate scientific discovery, develop innovative technologies, and translate medical breakthroughs into treatments and improved care. Their distinctive mission focuses on public benefit and addressing unmet medical needs.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 5.7,
+          "graphs": []
+        },
+        {
+          "name": "Life Sciences Commercialization & Communications Advisory",
+          "description": "These companies offer specialized consulting, market intelligence, and communication services for pharmaceutical, biotechnology, and medical device clients. They provide expertise in regulatory affairs, commercial strategy, market access, and medical communications. Their distinct value is in helping clients navigate complex industry landscapes, optimize product commercialization, and effectively engage target audiences.",
+          "companyCount": 14,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 2.5,
+          "graphs": []
+        },
+        {
+          "name": "Circular Construction Materials & Waste Resource Management",
+          "description": "This segment provides comprehensive construction materials, including primary and recycled aggregates, ready-mix concrete, and asphalt. They offer integrated services from quarrying and production to logistics and waste management. Their distinction is a strong focus on processing construction and demolition waste into valuable recycled materials, driving a circular economy in the sector.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 18.2,
+          "graphs": []
+        },
+        {
+          "name": "Advanced Polymer & Aluminium Fenestration",
+          "description": "These companies manufacture and supply advanced, energy-efficient uPVC and aluminium windows and doors, alongside composite and specialty door solutions. They provide high-performance, secure, and customizable fenestration products primarily to trade partners, new build, and social housing markets. Their distinction comes from utilizing modern material science, advanced manufacturing, and offering comprehensive business support for their client base.",
+          "companyCount": 10,
+          "medianGrowthScore": 0.017,
+          "medianEmployeeCagr": 14.9,
+          "graphs": []
+        },
+        {
+          "name": "Engineered Timber and Advanced Wood Products",
+          "description": "These companies specialize in manufacturing and supplying engineered timber solutions and advanced wood-based building materials. They provide prefabricated components like timber frames, joists, panels, and modified wood products with enhanced properties. Serving builders, developers, and the construction sector, they focus on improving construction efficiency, sustainability, and material performance through innovative wood processing technologies.",
+          "companyCount": 12,
+          "medianGrowthScore": 0.016,
+          "medianEmployeeCagr": 12.1,
+          "graphs": []
+        },
+        {
+          "name": "Temporary Site Infrastructure and Protective Solutions",
+          "description": "This cluster provides essential temporary infrastructure and safety systems for construction and critical environments. Offerings include scaffolding, formwork, fencing, site hoarding, and specialized defensive barriers for perimeter control and asset protection. They focus on modular, re-deployable solutions crucial for project safety, efficiency, and security.",
+          "companyCount": 19,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Modular and Prefabricated Building Solutions",
+          "description": "These companies specialize in the design, manufacturing, and supply of modular and prefabricated building units and systems. They provide full buildings, such as homes and leisure accommodations, or components like bathroom pods and timber-frame panels, often for rapid, high-quality installation in residential, commercial, and public sector projects. Their distinctiveness lies in off-site production for speed, efficiency, and sustainability.",
+          "companyCount": 16,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 10.5,
+          "graphs": []
+        },
+        {
+          "name": "Engineered Building Envelope & Interior Systems",
+          "description": "These companies design, manufacture, and supply high-performance facade, roofing, and internal partitioning systems. They utilize advanced materials like metal, glass, and composites, offering integrated solutions with superior thermal, acoustic, and fire performance. They serve commercial, public, and residential projects, providing durable, aesthetically pleasing, and often sustainable building components.",
+          "companyCount": 32,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11,
+          "graphs": []
+        },
+        {
+          "name": "Fabricated Structural Metal & Composite Solutions",
+          "description": "This cluster comprises companies specializing in the supply, fabrication, and installation of structural metal and composite components. They provide products like structural steelwork, hollow sections, metal framing systems, and GRP gratings, offering design, processing, and on-site services. Serving construction, infrastructure, and industrial sectors, their distinction is delivering integrated, high-quality fabricated material solutions.",
+          "companyCount": 26,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 9.9,
+          "graphs": []
+        },
+        {
+          "name": "Advanced Functional Building Materials & Systems",
+          "description": "These companies provide specialized materials and integrated systems that enhance specific building performance characteristics. They focus on solutions for fire protection, thermal insulation, acoustic control, and durable protective coatings or high-performance interior/exterior finishes. Their offerings meet stringent safety, efficiency, and aesthetic demands across diverse construction projects.",
+          "companyCount": 38,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.1,
+          "graphs": []
+        },
+        {
+          "name": "Architectural & Interior Finishing Solutions",
+          "description": "This segment comprises manufacturers, distributors, and retailers of specialized materials and integrated solutions for architectural and interior finishes. They provide a wide range of products including decorative tiles, advanced flooring systems, and functional wall panels, alongside bespoke kitchen and bathroom furniture and fixtures. Serving both residential and commercial projects, these companies focus on design, durability, and project-specific customization.",
+          "companyCount": 55,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 7.2,
+          "graphs": []
+        },
+        {
+          "name": "Civil Infrastructure & Substructure Contractors",
+          "description": "These contractors provide foundational civil engineering services, specializing in extensive groundworks, utility infrastructure installation and maintenance, and concrete sub/superstructure construction. They serve public, commercial, and residential sectors, including developers and utility providers. Their distinction lies in delivering essential infrastructure and structural elements, often utilizing specialized civil engineering techniques and sometimes integrating aggregate supply.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6.6,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Sports Entertainment and Fan Experience Providers",
+          "description": "These organizations deliver multi-faceted sports experiences, primarily in football and cricket, through live events, themed venues, and digital platforms. They generate revenue by offering ticketing, premium hospitality, branded merchandise, and unique fan engagement opportunities, leveraging their brand, physical facilities, and community presence.",
+          "companyCount": 99,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 13.1,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Cultural & Performing Arts Institutions",
+          "description": "These are multi-disciplinary cultural organizations operating physical venues such as theatres, museums, and dance houses. They provide diverse live performances, exhibitions, and cultural programs, coupled with extensive educational outreach and talent development for communities. Their distinctive model combines public arts access with social impact and venue hire, often as charities.",
+          "companyCount": 73,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 11.9,
+          "graphs": []
+        },
+        {
+          "name": "Cultural Exhibition & Heritage Venues",
+          "description": "These entities operate physical venues like art galleries, museums, and historical sites, offering public access to curated exhibitions of art, artifacts, and cultural heritage. They provide educational programs, retail merchandise, and venue hire, engaging visitors through immersive experiences and fostering cultural understanding. Their distinctiveness lies in preserving and presenting collections for public appreciation and learning.",
+          "companyCount": 28,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 11.3,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Visual & Audio Post-Production Services",
+          "description": "This segment encompasses creative studios and facilities delivering advanced post-production services, including visual effects (VFX), 2D/3D animation, motion graphics, color grading, editing, and sound design. They serve film, television, advertising, and digital content industries. Their expertise lies in transforming raw content into high-quality, polished visual and sonic experiences for cinematic and broadcast-ready delivery.",
+          "companyCount": 41,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 5.2,
+          "graphs": []
+        },
+        {
+          "name": "Electronic Music Culture & Experiences",
+          "description": "This segment specializes in the immersive world of electronic music, offering curated experiences through dedicated nightclubs, global events, and record labels. They provide comprehensive services for artists and fans, including music distribution, educational programs, and community platforms, fostering a vibrant underground electronic music culture globally.",
+          "companyCount": 10,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 6.5,
+          "graphs": []
+        },
+        {
+          "name": "Multi-Platform Video Game Development & Production Services",
+          "description": "These companies specialize in the end-to-end development and publishing of diverse digital video games across PC, console, mobile, and VR platforms. They also offer specialized production services such as co-development, art production, Live Ops, and Web3/AI integration for other game studios. Their distinction lies in delivering engaging, interactive experiences and providing comprehensive development support for the evolving global gaming market.",
+          "companyCount": 41,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 4.2,
+          "graphs": []
+        },
+        {
+          "name": "Interactive Betting & Casino Gaming",
+          "description": "This segment features companies offering diverse online and land-based gambling and wagering products. They provide casino games, sports betting, and lottery services to individual players, delivering regulated and immersive experiences. Their distinctiveness lies in combining advanced game technology, specialized content, and responsible gaming features across digital platforms and physical entertainment venues.",
+          "companyCount": 14,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.4,
+          "graphs": []
+        },
+        {
+          "name": "Multi-Platform Original Content Production",
+          "description": "These companies specialize in the end-to-end creation and production of original, high-quality media content. They develop diverse formats, including scripted dramas, documentaries, reality series, and digital audio/video programs. Serving broadcasters, streaming platforms, and global audiences, they drive intellectual property development in the entertainment sector.",
+          "companyCount": 41,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 6.2,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Content and Community Platforms",
+          "description": "These companies provide highly specialized content, including publications, digital media, and educational resources, tailored for distinct professional, affinity, or demographic communities. They foster engagement through online platforms, events, and networking, often combining content delivery with community building, professional development, and advocacy.",
+          "companyCount": 82,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 6.5,
+          "graphs": []
+        },
+        {
+          "name": "Niche & Community Multi-Platform Publishing",
+          "description": "These media companies produce tailored news, lifestyle, and cultural content, delivered through integrated print and digital platforms. They serve specific audiences like local communities, students, and niche interest groups, offering comprehensive advertising and marketing solutions. Their distinction is providing curated content and targeted engagement across various traditional and modern channels for defined reader bases.",
+          "companyCount": 48,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 7.1,
+          "graphs": []
+        },
+        {
+          "name": "Digital Advertising & Content Monetization Platforms",
+          "description": "This segment comprises companies providing advanced advertising technologies and content monetization solutions across diverse digital and traditional media platforms. They connect brands, advertisers, and content publishers with highly engaged, targeted audiences. Their distinctiveness lies in leveraging data, programmatic capabilities, and specialized content (e.g., gaming, sports, audio, DOOH) for effective, measurable advertising campaigns.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.6,
+          "graphs": []
+        },
+        {
+          "name": "B2B Professional Insights & Engagement Platforms",
+          "description": "These are specialized media and events platforms delivering critical industry news, market intelligence, and professional development content for specific vertical sectors. They primarily serve professionals and businesses, offering networking, conferences, and targeted engagement services like advertising, sponsorship, and lead generation to foster industry connections and business growth.",
+          "companyCount": 53,
+          "medianGrowthScore": 0.005,
+          "medianEmployeeCagr": 5.5,
+          "graphs": []
+        },
+        {
+          "name": "Media & Entertainment Creative, Marketing & Talent Solutions",
+          "description": "This segment offers specialized creative, marketing, and talent management solutions for the media and entertainment sector. These agencies provide strategic brand development, digital content creation, experiential marketing, casting, and talent representation to diverse industry clients. They are distinct through their integrated use of advanced digital technologies and creative methodologies to drive engagement and optimize operations.",
+          "companyCount": 69,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 5.4,
+          "graphs": []
+        },
+        {
+          "name": "Contract Electronics Manufacturing & Advanced Assembly",
+          "description": "This segment comprises companies specializing in contract electronics manufacturing services, offering end-to-end solutions from PCB assembly and advanced semiconductor packaging to full product box builds. They serve diverse high-reliability sectors like medical, aerospace, and automotive. Their distinctiveness lies in providing integrated design, production, and rigorous testing capabilities, coupled with robust supply chain management for complex electronic systems.",
+          "companyCount": 9,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 15.3,
+          "graphs": []
+        },
+        {
+          "name": "Mission-Critical Communication, Surveillance, and Sensing Systems",
+          "description": "This segment comprises companies specializing in advanced electronic systems for mission-critical communication, surveillance, and sensing. They provide robust RF, radar, and satellite solutions engineered for extreme reliability and performance in demanding operational environments. These technologies deliver secure data, situational awareness, and threat detection for defense, public safety, maritime, and critical infrastructure sectors.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.019,
+          "medianEmployeeCagr": 9.1,
+          "graphs": []
+        },
+        {
+          "name": "High-Reliability Embedded Electronics & Specialized Components",
+          "description": "This segment specializes in designing and manufacturing high-performance electronic and electromechanical components and integrated solutions. They deliver custom sensors, control modules, advanced interconnects, and optical systems. Primarily serving demanding industrial, automotive, aerospace, and energy sectors, their distinction lies in providing robust, precise, and reliable products engineered for mission-critical applications and harsh environments.",
+          "companyCount": 53,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 10.1,
+          "graphs": []
+        },
+        {
+          "name": "Circular Economy & Subscription Electronics Platforms",
+          "description": "These companies operate platforms and services focused on extending the lifecycle and accessibility of electronic devices. They provide re-commerce, refurbishment, rental, and subscription models for pre-owned or new consumer and business electronics. Their distinction lies in offering sustainable, flexible alternatives to traditional purchasing, reducing e-waste, and promoting a circular economy for technology.",
+          "companyCount": 12,
+          "medianGrowthScore": 0.004,
+          "medianEmployeeCagr": 2.1,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Audio-Visual and Control Systems",
+          "description": "This segment develops advanced electronic hardware for high-fidelity audio, professional sound processing, and integrated visual display and control. Serving professional markets like broadcast, live events, and control rooms, plus discerning consumers, their distinctiveness lies in precision-engineered systems for comprehensive signal management and immersive user experiences.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 5.1,
+          "graphs": []
+        },
+        {
+          "name": "Intelligent Electronic Security & Automation",
+          "description": "These companies develop and deploy integrated electronic systems for advanced security, safety, and intelligent monitoring. They provide smart sensors, video surveillance, access control, and automation platforms for residential, commercial, and specialized sectors. Their distinctiveness lies in leveraging AI and cloud connectivity to deliver comprehensive, data-driven protection and operational insights.",
+          "companyCount": 32,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 5.4,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Physical Security & Life Safety Services",
+          "description": "These companies deliver comprehensive physical security solutions, including manned guarding, electronic surveillance, and access control, often integrated with life safety systems like fire protection and specialized doors. Serving diverse commercial and public sectors, they provide tailored, technology-driven protection for people and assets, ensuring compliance and operational continuity.",
+          "companyCount": 50,
+          "medianGrowthScore": 0.021,
+          "medianEmployeeCagr": 17.4,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Facilities Management & Building Lifecycle Services",
+          "description": "These companies provide comprehensive, end-to-end services for the operational, technical, and physical upkeep of built environments. They encompass soft facilities management (e.g., cleaning, catering), hard services (e.g., M&E systems maintenance, commissioning), and specialized building repairs and project work, ensuring efficiency, compliance, and longevity for diverse properties.",
+          "companyCount": 125,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 13.4,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Human Services & Sector Support",
+          "description": "This segment comprises professional service firms specializing in human capital, operational, and direct service solutions for the education and health/social care sectors. They provide comprehensive recruitment, staffing, training, and specialized support services, often leveraging technology, to optimize workforce management and service delivery within these critical social infrastructure domains.",
+          "companyCount": 201,
+          "medianGrowthScore": 0.015,
+          "medianEmployeeCagr": 12.6,
+          "graphs": []
+        },
+        {
+          "name": "Digital Transformation & Advanced Technology Consulting",
+          "description": "These specialized consultants and solution providers offer digital transformation services utilizing cloud, AI/ML, data analytics, and robust cybersecurity. They enable diverse businesses and government agencies to optimize operations, enhance decision-making, and build secure, scalable digital infrastructures, driving innovation and strategic advantage.",
+          "companyCount": 276,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 7.1,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Financial & Business Services",
+          "description": "These firms provide integrated financial, accounting, and administrative support. They assist businesses and individuals with ongoing financial management, tax planning and compliance, payroll, auditing, company formation, and general business advisory, ensuring regulatory adherence and operational efficiency. Their services support strategic decision-making and reduce administrative burdens.",
+          "companyCount": 158,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Engineering & Infrastructure Consulting",
+          "description": "These firms provide specialized engineering, technical consulting, and project management for complex physical infrastructure, industrial assets, and advanced technical systems. Serving diverse sectors including energy, transportation, and the built environment, they leverage deep domain expertise and advanced technologies to optimize asset performance, ensure compliance, and integrate sustainability across the asset lifecycle.",
+          "companyCount": 162,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.5,
+          "graphs": []
+        },
+        {
+          "name": "Industry & Professional Development Bodies",
+          "description": "These are non-profit bodies and professional associations dedicated to the development and governance of specific industries, professions, or social causes. They provide professional development, training, accreditation, research, and advocacy, setting standards and fostering community to enhance practices and influence policy for their fields.",
+          "companyCount": 302,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.7,
+          "graphs": []
+        },
+        {
+          "name": "Applied Intelligence & Strategic Engagement",
+          "description": "This segment encompasses firms that leverage advanced data analytics, emerging technologies, and specialized expertise to provide strategic intelligence and enhance client engagement. They offer solutions for optimizing business performance, from market insights and operational efficiency to targeted marketing and immersive brand experiences. These services empower businesses to make informed decisions and achieve specific growth objectives.",
+          "companyCount": 586,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6.5,
+          "graphs": []
+        },
+        {
+          "name": "Technical Assurance & Regulatory Compliance Services",
+          "description": "These companies provide specialized testing, inspection, certification, and advisory services to ensure regulatory compliance and manage risks. They leverage technical expertise and often digital tools in areas like environmental safety, material integrity, workplace health, and industry-specific standards for diverse clients. They help organizations navigate complex regulations and protect assets.",
+          "companyCount": 199,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 9.1,
+          "graphs": []
+        },
+        {
+          "name": "Built Environment Development & Management",
+          "description": "These companies provide integrated advisory, planning, and management services for real estate development across various sectors, including residential and commercial. They offer expertise in masterplanning, architectural design, environmental impact assessments, land promotion, and property management. Their services facilitate the creation, enhancement, and sustainable operation of built environments for developers, investors, and property owners.",
+          "companyCount": 87,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.7,
+          "graphs": []
+        },
+        {
+          "name": "Multi-Practice Legal and Advisory Services",
+          "description": "These firms offer legal advice, representation, and transactional support across diverse practice areas like corporate, commercial, property, litigation, and private client law. They serve a broad client base, from businesses and public sector organizations to individuals and families. Their distinction is providing a wide range of expert legal solutions, often with specialized teams, to handle complex and routine legal matters.",
+          "companyCount": 283,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 6.8,
+          "graphs": []
+        },
+        {
+          "name": "Specialized Talent Acquisition & Workforce Solutions",
+          "description": "This segment comprises firms specializing in talent acquisition and comprehensive workforce solutions. They provide temporary, permanent, contract, and executive-level recruitment, alongside RPO and MSP models, for businesses across diverse sectors like tech, finance, and industrial. Their distinctiveness lies in tailored talent strategies, advisory, and compliance to meet specific industry skill demands.",
+          "companyCount": 311,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 6.4,
+          "graphs": []
+        },
+        {
+          "name": "Strategic Spatial & Experiential Design Services",
+          "description": "These companies are specialized design and architectural consultancies providing comprehensive services to create bespoke physical environments. They offer architectural and interior design, space planning, and project management for luxury residential, commercial, hospitality, and public sectors. Their distinction lies in crafting functional, aesthetically compelling, and experiential spaces, often integrating advanced technology and focusing on holistic project delivery.",
+          "companyCount": 96,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 5.8,
+          "graphs": []
+        },
+        {
+          "name": "Green Space Design, Maintenance, and Supply",
+          "description": "This segment encompasses companies providing a wide range of horticultural products and services, including landscaping materials, garden supplies, plants, seeds, and accessories. They serve both commercial clients and individual consumers, offering grounds maintenance, landscape construction, and retail garden center operations. These businesses focus on enhancing and managing diverse green environments.",
+          "companyCount": 14,
+          "medianGrowthScore": 0.014,
+          "medianEmployeeCagr": 15.3,
+          "graphs": []
+        },
+        {
+          "name": "Commercial Fresh & Prepared Produce Supply",
+          "description": "This segment encompasses large-scale cultivation, processing, and supply of fresh and prepared fruits and vegetables like salads, berries, and potatoes. Serving major retailers, foodservice, and manufacturers, these companies are distinguished by their integrated supply chains, commercial scale, and commitment to high-quality, convenient, and minimally processed produce.",
+          "companyCount": 29,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Advanced Agribusiness Solutions & Supply Chain Integration",
+          "description": "This segment delivers comprehensive solutions for modern agriculture, spanning specialized inputs, smart technologies, and equipment. They enable producers, processors, and traders to optimize operations, ensure product quality, and meet stringent sustainability and traceability standards across the entire crop and livestock value chain.",
+          "companyCount": 86,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.9,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Vehicle Accident & Cosmetic Repair Services",
+          "description": "This segment provides comprehensive vehicle accident and cosmetic repair, from minor SMART fixes and glass replacement to extensive collision and specialized EV/ADAS calibration. Serving individual owners, insurers, and fleets, they distinguish themselves by efficiently restoring vehicles to high standards using advanced techniques, digital tools, and accident management support.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.019,
+          "medianEmployeeCagr": 17.2,
+          "graphs": []
+        },
+        {
+          "name": "Commercial Vehicle Dealerships & Fleet Solutions",
+          "description": "This segment comprises companies offering comprehensive sales, leasing, and aftersales support for new and used commercial vehicles, including trucks, vans, and specialized models. They provide extensive maintenance, parts, customization, and integrated fleet management solutions to businesses and fleet operators. Their distinctiveness lies in delivering end-to-end services from vehicle acquisition to operational optimization, ensuring efficiency and minimizing downtime.",
+          "companyCount": 23,
+          "medianGrowthScore": 0.012,
+          "medianEmployeeCagr": 12.7,
+          "graphs": []
+        },
+        {
+          "name": "High-Performance & Advanced Mobility Engineering and Manufacturing",
+          "description": "This cluster comprises companies delivering advanced engineering and manufacturing of high-performance vehicles, powertrains, and specialized components. They leverage expertise in composite materials and cutting-edge technologies to provide bespoke, precision solutions. Distinctively serving demanding sectors like motorsport, high-end automotive, aerospace, and defense, they focus on innovation and rapid development.",
+          "companyCount": 70,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 9.1,
+          "graphs": []
+        },
+        {
+          "name": "Automotive Dealership & Comprehensive Aftermarket Services",
+          "description": "These multi-franchise dealerships specialize in selling new and approved used passenger cars, commercial vehicles, and electric/hybrid models. They offer flexible financing, trade-ins, and a full suite of aftersales services including maintenance, repairs, parts, and specialized schemes. They cater to individual consumers and businesses, providing complete vehicle acquisition and ownership support.",
+          "companyCount": 63,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Branded Fine Fragrance & Scented Lifestyle Products",
+          "description": "These companies develop, market, and distribute branded fine fragrances, personal care products, and home scents. They provide unique perfumes, scented body items, and ambiance solutions often emphasizing luxury, natural ingredients, or wellness. Serving individual consumers and gift-givers, their distinction lies in brand-driven consumer engagement and curated scent-based lifestyle offerings.",
+          "companyCount": 10,
+          "medianGrowthScore": 0.047,
+          "medianEmployeeCagr": 22.9,
+          "graphs": []
+        },
+        {
+          "name": "Personal Care & Beauty Product Development & Manufacturing",
+          "description": "This segment encompasses companies specializing in the development and manufacturing of formulated chemical products for beauty and personal care. They produce a diverse range of skincare, haircare, nail care, cosmetics, and hygiene products, often featuring active, natural, or sustainable ingredients. Serving consumer brands, professionals, and end-users, their distinction lies in creating innovative, high-quality, and often specialized solutions for personal wellness and aesthetics.",
+          "companyCount": 21,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 9.5,
+          "graphs": []
+        },
+        {
+          "name": "Specialty Industrial Chemicals & Advanced Materials",
+          "description": "This cluster specializes in developing and manufacturing advanced materials, specialized chemical formulations, and engineered solutions. They provide functional polymers, technical coatings, industrial gases, and performance additives to diverse B2B clients. Their distinction lies in delivering application-specific, high-performance solutions tailored for complex industrial, medical, and energy sector challenges.",
+          "companyCount": 86,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.1,
+          "graphs": []
+        },
+        {
+          "name": "Engineered Timber Building Solutions",
+          "description": "This segment designs and manufactures advanced engineered timber products and prefabricated systems like structural frames and panels. They serve the construction industry, offering high-performance, sustainable wood solutions to builders and developers. Distinctively, innovative engineering and material science drive efficient, quality construction with a reduced environmental impact.",
+          "companyCount": 30,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 9.6,
+          "graphs": []
+        },
+        {
+          "name": "Designed Furniture and Interior Furnishings Manufacturing",
+          "description": "This segment designs and manufactures diverse finished furniture and interior furnishing products. They supply bespoke items like sofas, beds, office, and outdoor furniture to residential, commercial, and institutional clients. Their distinction lies in craftsmanship, innovative design, and tailored solutions for creating high-quality, aesthetically pleasing spaces.",
+          "companyCount": 29,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 9.2,
+          "graphs": []
+        },
+        {
+          "name": "Wood-based Interior Joinery & Fit-out Solutions",
+          "description": "These companies specialize in the design, manufacturing, and installation of bespoke wood-based fitted furniture, joinery, and interior fit-out solutions. They serve various sectors, from residential and commercial to marine and public spaces, providing high-quality custom components and integrated project management. Their distinctiveness lies in combining expert craftsmanship with tailored solutions for diverse and often complex interior environments.",
+          "companyCount": 24,
+          "medianGrowthScore": 0.009,
+          "medianEmployeeCagr": 8.3,
+          "graphs": []
+        },
+        {
+          "name": "Commercial Print & Bespoke Packaging Solutions",
+          "description": "These companies provide tailored commercial printing services and custom paper-based packaging solutions. Their offerings include direct mail, labels, and corrugated boxes, often leveraging design and data. Serving diverse businesses, they distinguish themselves by offering bespoke, integrated, and automated solutions from concept to delivery.",
+          "companyCount": 27,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 6.9,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Energy Product Supply & Market Facilitation",
+          "description": "This segment comprises companies focused on the comprehensive supply, distribution, and trading of refined petroleum products, alternative fuels, and lubricants. They provide essential logistics, market intelligence, and risk management solutions, serving diverse retail, commercial, industrial, and marine customers. Their distinction lies in facilitating the efficient post-refining movement and transaction of energy products, coupled with critical market insights.",
+          "companyCount": 17,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 12.4,
+          "graphs": []
+        },
+        {
+          "name": "Independent Upstream Oil & Gas Exploration & Production (E&P)",
+          "description": "These independent companies specialize in upstream oil and gas exploration and production (E&P). They discover, develop, and extract crude oil and natural gas from diverse global asset portfolios, serving energy markets. Their distinctiveness stems from efficiently managing and optimizing hydrocarbon reserves, often through focused regional operations and strategic asset acquisitions.",
+          "companyCount": 6,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 8.2,
+          "graphs": []
+        },
+        {
+          "name": "Offshore & Subsea Infrastructure Lifecycle Solutions",
+          "description": "This cluster provides specialized engineering, equipment, and technical services spanning the entire lifecycle of offshore and subsea energy infrastructure, wells, and pipelines. They offer design, installation, integrity management, intervention, and decommissioning solutions. Their distinction lies in addressing complex underwater challenges and integrating new energy technologies like CCUS and hydrogen.",
+          "companyCount": 71,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.7,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Electrical Power Infrastructure & Smart Energy Solutions",
+          "description": "These companies provide integrated electrical power infrastructure and smart energy solutions, including low/high voltage distribution systems, transformers, EV charging, and battery energy storage. They serve commercial, industrial, residential, and specialized outdoor environments, optimizing power distribution and energy management for efficiency and reliability.",
+          "companyCount": 46,
+          "medianGrowthScore": 0.011,
+          "medianEmployeeCagr": 11.1,
+          "graphs": []
+        },
+        {
+          "name": "Building Climate & Water Management Systems",
+          "description": "This segment encompasses companies providing comprehensive solutions for indoor climate control and water heating. They offer advanced heating (boilers, heat pumps), ventilation, air conditioning, and domestic hot water systems for residential, commercial, and industrial applications. Distinction lies in integrated, energy-efficient, and low-carbon technologies for comfortable, sustainable building environments.",
+          "companyCount": 20,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 7.9,
+          "graphs": []
+        },
+        {
+          "name": "Life Safety and Electronic Security Systems",
+          "description": "These companies specialize in designing, manufacturing, and integrating advanced life safety and electronic security systems. They provide fire detection, alarm, and mitigation products, alongside intruder alarms, access control, and CCTV, serving residential, commercial, and industrial markets. Their distinctiveness lies in comprehensive, integrated solutions for building protection and compliance.",
+          "companyCount": 19,
+          "medianGrowthScore": 0.007,
+          "medianEmployeeCagr": 7.9,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Building Systems & Energy Solutions",
+          "description": "These firms specialize in designing, installing, and maintaining complex electrical and mechanical systems for diverse built environments. They provide integrated solutions spanning HVAC, lighting, security, and smart building automation, with a strong focus on energy efficiency and renewable technologies. Serving commercial, residential, and public sector clients, they optimize building performance and sustainability.",
+          "companyCount": 28,
+          "medianGrowthScore": 0.008,
+          "medianEmployeeCagr": 8.4,
+          "graphs": []
+        },
+        {
+          "name": "Professional & Specialized LED Lighting Solutions",
+          "description": "These companies design and manufacture high-performance LED lighting systems. They provide robust, energy-efficient luminaires for demanding commercial, industrial, and public sector applications, including hazardous areas, security, transport, and healthcare. Their distinctiveness lies in offering application-specific, often bespoke, solutions with advanced controls and specialized features tailored for challenging environments.",
+          "companyCount": 15,
+          "medianGrowthScore": 0.004,
+          "medianEmployeeCagr": 4.6,
+          "graphs": []
+        },
+        {
+          "name": "Personal Hair Styling & Grooming Appliances",
+          "description": "This segment specializes in electrical personal care devices for hair styling and grooming, including straighteners, curlers, and dryers, often paired with complementary hair care products. They serve individual consumers and beauty professionals. Distinctive for their innovative heat technology, advanced materials, and ergonomic designs that prioritize hair health, styling performance, and user experience.",
+          "companyCount": 5,
+          "medianGrowthScore": 0.004,
+          "medianEmployeeCagr": 1.9,
+          "graphs": []
+        },
+        {
+          "name": "Sustainable Fisheries & Aquaculture Stewardship & Certification",
+          "description": "These entities establish, certify, and advocate for sustainable and responsible practices across the fishing and aquaculture supply chain. They provide standards, advisory services, and community empowerment initiatives to fisheries, farms, and businesses. Their distinctiveness is fostering ecological health, resource longevity, and social responsibility within the seafood industry through robust frameworks and practical support.",
+          "companyCount": 5,
+          "medianGrowthScore": 0.013,
+          "medianEmployeeCagr": 12.3,
+          "graphs": []
+        },
+        {
+          "name": "Integrated Aquaculture Production and Supply Chain",
+          "description": "These companies specialize in the cultivation, processing, and supply of farmed aquatic species like salmon, turbot, sole, and prawns. They serve global food markets, retailers, and consumers. Their distinction lies in their vertically integrated approach, sustainable farming practices, and management of marine assets to support the entire seafood supply chain from farm to plate.",
+          "companyCount": 5,
+          "medianGrowthScore": 0.01,
+          "medianEmployeeCagr": 10.5,
+          "graphs": []
+        },
+        {
+          "name": "Value-Added Seafood Processing & Distribution",
+          "description": "This segment comprises companies specializing in the processing, packaging, and distribution of diverse value-added seafood products. They supply chilled, frozen, cooked, and canned fish, shellfish, and ready meals to retail, foodservice, and wholesale customers globally. Their distinctiveness lies in transforming raw seafood into convenient, market-ready forms with an emphasis on quality, sustainability, and traceability.",
+          "companyCount": 7,
+          "medianGrowthScore": 0.006,
+          "medianEmployeeCagr": 6.3,
+          "graphs": []
+        }
+      ]
+    }
+  ]
+}
