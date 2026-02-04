@@ -4,88 +4,86 @@ import {
   ChevronRight, 
   ArrowLeft,
   Upload,
-  Settings,
   X,
   BarChart3,
   TrendingUp,
-  Users
+  Users,
+  Calendar,
+  Search,
+  Plus
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import './index.css';
 
 // Types
-interface Sector {
+interface Company {
   name: string;
   description: string;
-  companyCount: number;
-  medianGrowthScore: number;
-  medianEmployeeCagr: number;
+  foundedYear: number;
+  employeeCount: number;
+  employeeCagr: number;
+  growthScore: number;
+  sector: string;
 }
 
-interface ThematicSector {
-  name: string;
-  description: string;
-  companyCount: number;
-  medianGrowthScore: number;
-  medianEmployeeCagr: number;
-  parentSector: string;
+interface Graph {
+  filename: string;
+  sector: string;
+  content: string;
 }
 
-// Parse CSV
-function parseSectors(csv: string): { sectors: Sector[], thematics: ThematicSector[] } {
+// Parse company CSV - extract unique sectors from 'sector' column
+function parseSectorsFromCSV(csv: string): string[] {
   const lines = csv.trim().split('\n');
-  if (lines.length < 2) return { sectors: [], thematics: [] };
+  if (lines.length < 2) return [];
   
   const headers = lines[0].split(',');
   const sectorIdx = headers.indexOf('sector');
-  const sectorDescIdx = headers.indexOf('sector_description');
-  const sectorCountIdx = headers.indexOf('sector_company_count');
-  const sectorGrowthIdx = headers.indexOf('sector_median_growth_score');
-  const sectorCagrIdx = headers.indexOf('sector_median_employee_cagr');
-  const thematicIdx = headers.indexOf('thematic_sector');
-  const thematicDescIdx = headers.indexOf('thematic_sector_description');
-  const thematicCountIdx = headers.indexOf('company_count');
-  const thematicGrowthIdx = headers.indexOf('median_growth_score');
-  const thematicCagrIdx = headers.indexOf('median_employee_cagr');
   
-  const sectorMap = new Map<string, Sector>();
-  const thematics: ThematicSector[] = [];
+  if (sectorIdx === -1) return [];
   
+  const sectors = new Set<string>();
   for (let i = 1; i < lines.length; i++) {
     const cols = parseCSVLine(lines[i]);
-    if (cols.length < 10) continue;
-    
-    const sectorName = cols[sectorIdx];
-    const thematicName = cols[thematicIdx];
-    
-    // Add/update sector
-    if (!sectorMap.has(sectorName)) {
-      sectorMap.set(sectorName, {
-        name: sectorName,
-        description: cols[sectorDescIdx],
-        companyCount: parseInt(cols[sectorCountIdx]) || 0,
-        medianGrowthScore: parseFloat(cols[sectorGrowthIdx]) || 0,
-        medianEmployeeCagr: parseFloat(cols[sectorCagrIdx]) || 0
+    if (cols[sectorIdx]) {
+      sectors.add(cols[sectorIdx]);
+    }
+  }
+  return Array.from(sectors).sort();
+}
+
+function parseCompanies(csv: string): Company[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  const headers = lines[0].split(',');
+  const nameIdx = headers.indexOf('company_name');
+  const descIdx = headers.indexOf('description');
+  const yearIdx = headers.indexOf('founded_year');
+  const empIdx = headers.indexOf('employee_count');
+  const cagrIdx = headers.indexOf('employee_cagr');
+  const growthIdx = headers.indexOf('growth_score');
+  const sectorIdx = headers.indexOf('sector');
+  
+  const companies: Company[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = parseCSVLine(lines[i]);
+    if (cols.length >= 7) {
+      companies.push({
+        name: cols[nameIdx],
+        description: cols[descIdx],
+        foundedYear: parseInt(cols[yearIdx]) || 0,
+        employeeCount: parseInt(cols[empIdx]) || 0,
+        employeeCagr: parseFloat(cols[cagrIdx]) || 0,
+        growthScore: parseFloat(cols[growthIdx]) || 0,
+        sector: cols[sectorIdx]
       });
     }
-    
-    // Add thematic sector
-    thematics.push({
-      name: thematicName,
-      description: cols[thematicDescIdx],
-      companyCount: parseInt(cols[thematicCountIdx]) || 0,
-      medianGrowthScore: parseFloat(cols[thematicGrowthIdx]) || 0,
-      medianEmployeeCagr: parseFloat(cols[thematicCagrIdx]) || 0,
-      parentSector: sectorName
-    });
   }
-  
-  return { 
-    sectors: Array.from(sectorMap.values()), 
-    thematics 
-  };
+  return companies;
 }
 
 function parseCSVLine(line: string): string[] {
@@ -114,18 +112,18 @@ function AdminPanel({ onClose, onRefresh }: {
   onRefresh: () => void;
 }) {
   const [csvContent, setCsvContent] = useState('');
+  const [csvFile, setCsvFile] = useState<File | null>(null);
   const [htmlFiles, setHtmlFiles] = useState<{file: File, sector: string}[]>([]);
   const [sectors, setSectors] = useState<string[]>([]);
   const [message, setMessage] = useState('');
   const [isError, setIsError] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  // Parse sectors from CSV for dropdown
+  // Parse sectors when CSV is loaded
   useEffect(() => {
     if (csvContent) {
-      const { sectors: parsedSectors, thematics } = parseSectors(csvContent);
-      const allSectors = [...parsedSectors.map(s => s.name), ...thematics.map(t => t.name)];
-      setSectors([...new Set(allSectors)]);
+      const parsedSectors = parseSectorsFromCSV(csvContent);
+      setSectors(parsedSectors);
     }
   }, [csvContent]);
 
@@ -133,9 +131,11 @@ function AdminPanel({ onClose, onRefresh }: {
     const file = e.target.files?.[0];
     if (!file) return;
     
+    setCsvFile(file);
     const reader = new FileReader();
     reader.onload = (event) => {
-      setCsvContent(event.target?.result as string);
+      const content = event.target?.result as string;
+      setCsvContent(content);
     };
     reader.readAsText(file);
   };
@@ -163,7 +163,7 @@ function AdminPanel({ onClose, onRefresh }: {
 
     try {
       if (!csvContent) {
-        throw new Error('Please upload a CSV file');
+        throw new Error('Please upload a company CSV file');
       }
 
       const htmlData = await Promise.all(
@@ -174,7 +174,7 @@ function AdminPanel({ onClose, onRefresh }: {
         }))
       );
 
-      const response = await fetch('/api/admin/upload-data', {
+      const response = await fetch('/api/admin/upload', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -184,9 +184,11 @@ function AdminPanel({ onClose, onRefresh }: {
       });
       
       if (response.ok) {
-        setMessage('Data uploaded successfully');
+        setMessage(`Uploaded successfully`);
         setCsvContent('');
+        setCsvFile(null);
         setHtmlFiles([]);
+        setSectors([]);
         onRefresh();
       } else {
         throw new Error(await response.text());
@@ -204,16 +206,20 @@ function AdminPanel({ onClose, onRefresh }: {
       <header className="border-b px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={onClose}>
-            <X className="h-5 w-5" />
+            <ArrowLeft className="h-5 w-5" />
           </Button>
-          <h1 className="text-xl font-semibold">Admin Panel</h1>
+          <h1 className="text-xl font-semibold">Upload Data</h1>
         </div>
       </header>
 
       <main className="max-w-4xl mx-auto p-6 space-y-6">
+        {/* Step 1: CSV */}
         <Card>
           <CardHeader>
-            <CardTitle>Step 1: Upload Sector Data CSV</CardTitle>
+            <CardTitle className="flex items-center gap-2">
+              <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+              Upload Company CSV
+            </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
             <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:bg-muted/50 transition-colors cursor-pointer">
@@ -227,17 +233,35 @@ function AdminPanel({ onClose, onRefresh }: {
               <label htmlFor="csv-upload" className="cursor-pointer">
                 <Upload className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
                 <p className="font-medium">
-                  {csvContent ? 'CSV loaded ✓' : 'Click to upload sector CSV'}
+                  {csvFile ? csvFile.name : 'Click to upload company CSV'}
+                </p>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Required columns: company_name, description, founded_year, employee_count, employee_cagr, growth_score, <strong>sector</strong>
                 </p>
               </label>
             </div>
+
+            {sectors.length > 0 && (
+              <div className="bg-muted p-4 rounded-lg">
+                <p className="text-sm font-medium mb-2">Sectors found in CSV:</p>
+                <div className="flex flex-wrap gap-2">
+                  {sectors.map(s => (
+                    <Badge key={s} variant="secondary">{s}</Badge>
+                  ))}
+                </div>
+              </div>
+            )}
           </CardContent>
         </Card>
 
+        {/* Step 2: HTML Graphs */}
         {csvContent && (
           <Card>
             <CardHeader>
-              <CardTitle>Step 2: Upload Graph HTML Files (Optional)</CardTitle>
+              <CardTitle className="flex items-center gap-2">
+                <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
+                Upload Sector Graphs (Optional)
+              </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
               <div className="border-2 border-dashed border-border rounded-lg p-6 text-center hover:bg-muted/50 transition-colors cursor-pointer">
@@ -250,14 +274,14 @@ function AdminPanel({ onClose, onRefresh }: {
                   multiple
                 />
                 <label htmlFor="html-upload" className="cursor-pointer">
-                  <Upload className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
+                  <Plus className="h-8 w-8 mx-auto mb-2 text-muted-foreground" />
                   <p className="text-sm">Add HTML graph files</p>
                 </label>
               </div>
 
               {htmlFiles.length > 0 && (
                 <div className="space-y-2">
-                  <p className="text-sm font-medium">Assign to sector/thematic:</p>
+                  <p className="text-sm font-medium">Assign each graph to a sector:</p>
                   {htmlFiles.map((item, idx) => (
                     <div key={idx} className="flex items-center gap-3 p-3 bg-muted rounded-lg">
                       <span className="flex-1 text-sm truncate">{item.file.name}</span>
@@ -288,157 +312,126 @@ function AdminPanel({ onClose, onRefresh }: {
           </div>
         )}
 
-        <Button className="w-full" size="lg" onClick={handleSubmit} disabled={loading || !csvContent}>
-          {loading ? 'Processing...' : 'Upload Data'}
+        <Button 
+          className="w-full" 
+          size="lg" 
+          onClick={handleSubmit} 
+          disabled={loading || !csvContent}
+        >
+          {loading ? 'Uploading...' : 'Upload'}
         </Button>
       </main>
     </div>
   );
 }
 
-// Sector List
-function SectorList({ sectors, onSelect, onAdmin }: { 
-  sectors: Sector[];
-  onSelect: (s: Sector) => void;
-  onAdmin: () => void;
+// Empty State
+function EmptyState({ onUpload }: { onUpload: () => void }) {
+  return (
+    <div className="min-h-screen bg-background flex flex-col items-center justify-center p-6">
+      <div className="text-center max-w-md">
+        <Building2 className="h-16 w-16 mx-auto mb-6 text-muted-foreground" />
+        <h1 className="text-2xl font-semibold mb-2">No Companies Yet</h1>
+        <p className="text-muted-foreground mb-6">
+          Upload your company data and sector graphs to get started.
+        </p>
+        <Button size="lg" onClick={onUpload}>
+          <Upload className="h-5 w-5 mr-2" />
+          Upload Data
+        </Button>
+      </div>
+    </div>
+  );
+}
+
+// Company List
+function CompanyList({ companies, onSelect, onUpload }: { 
+  companies: Company[];
+  onSelect: (c: Company) => void;
+  onUpload: () => void;
 }) {
+  const [search, setSearch] = useState('');
+
+  const filtered = companies.filter(c => 
+    c.name.toLowerCase().includes(search.toLowerCase()) ||
+    c.sector.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div className="min-h-screen bg-background">
       <header className="border-b px-6 py-4">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <Building2 className="h-6 w-6" />
-            <h1 className="text-xl font-semibold">Sectors</h1>
+            <h1 className="text-xl font-semibold">Companies</h1>
           </div>
-          <Button variant="outline" size="sm" onClick={onAdmin}>
-            <Settings className="h-4 w-4 mr-2" />
-            Admin
+          <Button variant="outline" size="sm" onClick={onUpload}>
+            <Upload className="h-4 w-4 mr-2" />
+            Upload
           </Button>
         </div>
       </header>
 
       <main className="max-w-6xl mx-auto p-6">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {sectors.map((sector) => (
-            <Card 
-              key={sector.name}
-              className="cursor-pointer hover:border-primary transition-colors"
-              onClick={() => onSelect(sector)}
-            >
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <CardTitle className="text-lg">{sector.name}</CardTitle>
-                  <Badge variant="secondary">{sector.companyCount} companies</Badge>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground line-clamp-2">{sector.description}</p>
-                <div className="grid grid-cols-2 gap-4 mt-4 text-sm">
-                  <div>
-                    <p className="text-muted-foreground">Growth</p>
-                    <p className="font-medium">{(sector.medianGrowthScore * 100).toFixed(1)}%</p>
-                  </div>
-                  <div>
-                    <p className="text-muted-foreground">CAGR</p>
-                    <p className="font-medium">{sector.medianEmployeeCagr.toFixed(1)}%</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </main>
-    </div>
-  );
-}
-
-// Thematic Sectors View
-function ThematicList({ sector, thematics, onBack, onSelect }: { 
-  sector: Sector;
-  thematics: ThematicSector[];
-  onBack: () => void;
-  onSelect: (t: ThematicSector) => void;
-}) {
-  const filtered = thematics.filter(t => t.parentSector === sector.name);
-
-  return (
-    <div className="min-h-screen bg-background">
-      <header className="border-b px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center gap-4">
-          <Button variant="ghost" size="icon" onClick={onBack}>
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-          <div>
-            <h1 className="text-xl font-semibold">{sector.name}</h1>
-            <p className="text-sm text-muted-foreground">{filtered.length} thematic sectors</p>
+        <div className="mb-6">
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input 
+              placeholder="Search companies or sectors..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="pl-10"
+            />
           </div>
         </div>
-      </header>
 
-      <main className="max-w-6xl mx-auto p-6 space-y-6">
-        <Card>
-          <CardContent className="pt-6">
-            <p className="text-muted-foreground">{sector.description}</p>
-            <div className="grid grid-cols-3 gap-4 mt-4">
+        <div className="divide-y border rounded-lg">
+          {filtered.map((company) => (
+            <div 
+              key={company.name}
+              className="flex items-center justify-between p-4 hover:bg-muted/50 cursor-pointer transition-colors"
+              onClick={() => onSelect(company)}
+            >
               <div>
-                <p className="text-sm text-muted-foreground">Total Companies</p>
-                <p className="text-2xl font-semibold">{sector.companyCount}</p>
+                <h3 className="font-medium">{company.name}</h3>
+                <p className="text-sm text-muted-foreground">{company.sector}</p>
               </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Median Growth</p>
-                <p className="text-2xl font-semibold">{(sector.medianGrowthScore * 100).toFixed(1)}%</p>
-              </div>
-              <div>
-                <p className="text-sm text-muted-foreground">Median CAGR</p>
-                <p className="text-2xl font-semibold">{sector.medianEmployeeCagr.toFixed(1)}%</p>
+              <div className="flex items-center gap-4">
+                <Badge variant="secondary">{company.employeeCount} employees</Badge>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
               </div>
             </div>
-          </CardContent>
-        </Card>
-
-        <div className="grid gap-4">
-          {filtered.map((thematic) => (
-            <Card 
-              key={thematic.name}
-              className="cursor-pointer hover:border-primary transition-colors"
-              onClick={() => onSelect(thematic)}
-            >
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="text-lg">{thematic.name}</CardTitle>
-                  <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                </div>
-              </CardHeader>
-              <CardContent>
-                <p className="text-sm text-muted-foreground line-clamp-2">{thematic.description}</p>
-                <div className="flex gap-4 mt-4">
-                  <Badge variant="secondary">{thematic.companyCount} companies</Badge>
-                  <Badge variant="outline">Growth: {(thematic.medianGrowthScore * 100).toFixed(1)}%</Badge>
-                  <Badge variant="outline">CAGR: {thematic.medianEmployeeCagr.toFixed(1)}%</Badge>
-                </div>
-              </CardContent>
-            </Card>
           ))}
+        </div>
+
+        {filtered.length === 0 && (
+          <div className="text-center py-12 text-muted-foreground">
+            No companies found
+          </div>
+        )}
+
+        <div className="mt-4 text-sm text-muted-foreground text-center">
+          {companies.length} companies
         </div>
       </main>
     </div>
   );
 }
 
-// Thematic Detail with Graphs
-function ThematicDetail({ thematic, onBack }: { 
-  thematic: ThematicSector;
+// Company Detail
+function CompanyDetail({ company, onBack }: { 
+  company: Company;
   onBack: () => void;
 }) {
-  const [graphs, setGraphs] = useState<any[]>([]);
+  const [graphs, setGraphs] = useState<Graph[]>([]);
 
   useEffect(() => {
     fetch('/api/graphs')
       .then(r => r.json())
-      .then(data => {
-        setGraphs(data.filter((g: any) => g.sector === thematic.name));
+      .then((data: Graph[]) => {
+        setGraphs(data.filter(g => g.sector === company.sector));
       });
-  }, [thematic]);
+  }, [company]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -448,8 +441,8 @@ function ThematicDetail({ thematic, onBack }: {
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
-            <h1 className="text-xl font-semibold">{thematic.name}</h1>
-            <p className="text-sm text-muted-foreground">{thematic.parentSector}</p>
+            <h1 className="text-xl font-semibold">{company.name}</h1>
+            <p className="text-sm text-muted-foreground">{company.sector}</p>
           </div>
         </div>
       </header>
@@ -457,22 +450,28 @@ function ThematicDetail({ thematic, onBack }: {
       <main className="max-w-6xl mx-auto p-6 space-y-6">
         <Card>
           <CardContent className="pt-6">
-            <p className="text-muted-foreground">{thematic.description}</p>
-            <div className="grid grid-cols-3 gap-4 mt-6">
+            <p className="text-muted-foreground">{company.description}</p>
+            
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+              <div className="p-4 bg-muted rounded-lg">
+                <Calendar className="h-5 w-5 mb-2 text-muted-foreground" />
+                <p className="text-sm text-muted-foreground">Founded</p>
+                <p className="text-lg font-semibold">{company.foundedYear}</p>
+              </div>
               <div className="p-4 bg-muted rounded-lg">
                 <Users className="h-5 w-5 mb-2 text-muted-foreground" />
-                <p className="text-sm text-muted-foreground">Companies</p>
-                <p className="text-2xl font-semibold">{thematic.companyCount}</p>
+                <p className="text-sm text-muted-foreground">Employees</p>
+                <p className="text-lg font-semibold">{company.employeeCount}</p>
               </div>
               <div className="p-4 bg-muted rounded-lg">
                 <TrendingUp className="h-5 w-5 mb-2 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">Growth Score</p>
-                <p className="text-2xl font-semibold">{(thematic.medianGrowthScore * 100).toFixed(1)}%</p>
+                <p className="text-lg font-semibold">{(company.growthScore * 100).toFixed(1)}%</p>
               </div>
               <div className="p-4 bg-muted rounded-lg">
                 <BarChart3 className="h-5 w-5 mb-2 text-muted-foreground" />
                 <p className="text-sm text-muted-foreground">Employee CAGR</p>
-                <p className="text-2xl font-semibold">{thematic.medianEmployeeCagr.toFixed(1)}%</p>
+                <p className="text-lg font-semibold">{company.employeeCagr.toFixed(1)}%</p>
               </div>
             </div>
           </CardContent>
@@ -480,7 +479,7 @@ function ThematicDetail({ thematic, onBack }: {
 
         {graphs.length > 0 && (
           <div className="space-y-4">
-            <h2 className="text-lg font-semibold">Analysis Graphs</h2>
+            <h2 className="text-lg font-semibold">Sector Analysis: {company.sector}</h2>
             {graphs.map((graph, idx) => (
               <Card key={idx}>
                 <CardHeader>
@@ -504,24 +503,24 @@ function ThematicDetail({ thematic, onBack }: {
 
 // Main App
 function App() {
-  const [view, setView] = useState<'list' | 'thematic' | 'detail' | 'admin'>('list');
-  const [selectedSector, setSelectedSector] = useState<Sector | null>(null);
-  const [selectedThematic, setSelectedThematic] = useState<ThematicSector | null>(null);
-  const [sectors, setSectors] = useState<Sector[]>([]);
-  const [thematics, setThematics] = useState<ThematicSector[]>([]);
+  const [view, setView] = useState<'empty' | 'list' | 'detail' | 'upload'>('empty');
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
+  const [companies, setCompanies] = useState<Company[]>([]);
   const [loading, setLoading] = useState(true);
 
   const loadData = async () => {
     try {
-      const response = await fetch('/data/sectors.csv');
+      const response = await fetch('/data/companies.csv');
       if (response.ok) {
         const csv = await response.text();
-        const { sectors: parsedSectors, thematics: parsedThematics } = parseSectors(csv);
-        setSectors(parsedSectors);
-        setThematics(parsedThematics);
+        const parsed = parseCompanies(csv);
+        setCompanies(parsed);
+        setView(parsed.length > 0 ? 'list' : 'empty');
+      } else {
+        setView('empty');
       }
     } catch (e) {
-      console.error('Failed to load:', e);
+      setView('empty');
     } finally {
       setLoading(false);
     }
@@ -541,31 +540,28 @@ function App() {
 
   return (
     <>
+      {view === 'empty' && (
+        <EmptyState onUpload={() => setView('upload')} />
+      )}
       {view === 'list' && (
-        <SectorList 
-          sectors={sectors}
-          onSelect={(s) => { setSelectedSector(s); setView('thematic'); }}
-          onAdmin={() => setView('admin')}
+        <CompanyList 
+          companies={companies}
+          onSelect={(c) => { setSelectedCompany(c); setView('detail'); }}
+          onUpload={() => setView('upload')}
         />
       )}
-      {view === 'thematic' && selectedSector && (
-        <ThematicList 
-          sector={selectedSector}
-          thematics={thematics}
+      {view === 'detail' && selectedCompany && (
+        <CompanyDetail 
+          company={selectedCompany}
           onBack={() => setView('list')}
-          onSelect={(t) => { setSelectedThematic(t); setView('detail'); }}
         />
       )}
-      {view === 'detail' && selectedThematic && (
-        <ThematicDetail 
-          thematic={selectedThematic}
-          onBack={() => setView('thematic')}
-        />
-      )}
-      {view === 'admin' && (
+      {view === 'upload' && (
         <AdminPanel 
-          onClose={() => setView('list')}
-          onRefresh={loadData}
+          onClose={() => setView(companies.length > 0 ? 'list' : 'empty')}
+          onRefresh={() => {
+            loadData();
+          }}
         />
       )}
     </>

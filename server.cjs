@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 3001;
 const DATA_DIR = path.join(__dirname, 'public', 'data');
-const SECTORS_FILE = path.join(DATA_DIR, 'sectors.csv');
+const COMPANIES_FILE = path.join(DATA_DIR, 'companies.csv');
 const GRAPHS_DIR = path.join(DATA_DIR, 'graphs');
 
 app.use(cors());
@@ -20,17 +20,15 @@ if (!fs.existsSync(GRAPHS_DIR)) {
   fs.mkdirSync(GRAPHS_DIR, { recursive: true });
 }
 
-// Upload sectors CSV and HTML graphs
-app.post('/api/admin/upload-data', (req, res) => {
+// Upload companies CSV and HTML graphs
+app.post('/api/admin/upload', (req, res) => {
   const { csvContent, htmlFiles } = req.body;
   
-  if (!csvContent) {
-    return res.status(400).send('CSV content is required');
-  }
-  
   try {
-    // Save CSV file
-    fs.writeFileSync(SECTORS_FILE, csvContent);
+    // Save CSV if provided
+    if (csvContent) {
+      fs.writeFileSync(COMPANIES_FILE, csvContent);
+    }
     
     // Save HTML graph files
     if (htmlFiles && htmlFiles.length > 0) {
@@ -49,7 +47,7 @@ app.post('/api/admin/upload-data', (req, res) => {
       }
     }
     
-    res.json({ success: true, message: 'Data uploaded' });
+    res.json({ success: true, message: 'Upload successful' });
   } catch (error) {
     console.error('Error uploading:', error);
     res.status(500).send('Failed to upload');
