@@ -31,7 +31,7 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npm run build
+        run: GH_PAGES=true npm run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

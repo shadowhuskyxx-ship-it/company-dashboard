@@ -5,7 +5,7 @@ import path from 'path'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/company-dashboard/',
+  base: process.env.GH_PAGES === 'true' ? '/company-dashboard/' : '/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
