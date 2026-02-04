@@ -466,16 +466,16 @@ function CompanyList({ companies, onSelect, onUpload }: {
       <main className="max-w-6xl mx-auto p-6">
         <div className="divide-y border rounded-lg">
           {companies.map((company) => (
-            <div 
+            <div
               key={company.name}
-              className="flex items-center justify-between p-3 sm:p-4 hover:bg-muted/50 cursor-pointer transition-colors"
+              className="flex items-center justify-between p-3 sm:p-4 hover:bg-accent hover:text-accent-foreground cursor-pointer transition-all duration-200 rounded-lg group"
               onClick={() => onSelect(company)}
             >
               <div className="min-w-0 flex-1 mr-3">
-                <h3 className="font-medium text-sm sm:text-base truncate">{company.name}</h3>
-                <p className="text-xs sm:text-sm text-muted-foreground">{company.sectors.length} sectors</p>
+                <h3 className="font-medium text-sm sm:text-base truncate group-hover:text-accent-foreground">{company.name}</h3>
+                <p className="text-xs sm:text-sm text-muted-foreground group-hover:text-accent-foreground/70">{company.sectors.length} sectors</p>
               </div>
-              <ChevronRight className="h-5 w-5 text-muted-foreground flex-shrink-0" />
+              <ChevronRight className="h-5 w-5 text-muted-foreground flex-shrink-0 group-hover:text-accent-foreground transition-transform group-hover:translate-x-1" />
             </div>
           ))}
         </div>
@@ -513,8 +513,8 @@ function SectorList({ company, onBack, onSelectSector }: {
           <Card key={sector.name}>
             <CardHeader className="pb-3 sm:pb-6">
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-4">
-                <div className="flex-1 min-w-0" onClick={() => onSelectSector(sector)}>
-                  <CardTitle className="text-base sm:text-lg cursor-pointer hover:text-primary line-clamp-2">{sector.name}</CardTitle>
+                <div className="flex-1 min-w-0 cursor-pointer group/sector" onClick={() => onSelectSector(sector)}>
+                  <CardTitle className="text-base sm:text-lg cursor-pointer hover:text-primary transition-colors line-clamp-2 group-hover/sector:text-primary">{sector.name}</CardTitle>
                   <p className="text-xs sm:text-sm text-muted-foreground mt-1 line-clamp-2">{sector.description}</p>
                 </div>
                 <Badge variant="secondary" className="self-start sm:self-auto text-xs whitespace-nowrap">
@@ -543,12 +543,12 @@ function SectorList({ company, onBack, onSelectSector }: {
                   <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
                   <div className="flex flex-wrap gap-2">
                     {sector.graphs.map((graph, idx) => (
-                      <Button 
-                        key={idx} 
-                        variant="secondary" 
+                      <Button
+                        key={idx}
+                        variant="secondary"
                         size="sm"
                         onClick={() => openGraphInNewTab(graph.filename)}
-                        className="rounded-full px-3 sm:px-4 text-xs sm:text-sm"
+                        className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
                       >
                         <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
@@ -614,12 +614,12 @@ function ThematicList({ sector, onBack }: {
                   <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
                   <div className="flex flex-wrap gap-2">
                     {thematic.graphs.map((graph, idx) => (
-                      <Button 
-                        key={idx} 
-                        variant="secondary" 
+                      <Button
+                        key={idx}
+                        variant="secondary"
                         size="sm"
                         onClick={() => openGraphInNewTab(graph.filename)}
-                        className="rounded-full px-3 sm:px-4 text-xs sm:text-sm"
+                        className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
                       >
                         <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                         <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
