@@ -619,8 +619,8 @@ function SectorList({ company, onBack, onSelectSector }: {
                   </div>
                 </div>
               </CardHeader>
-              {isExpanded && (
-                <CardContent>
+              <CardContent className={isExpanded ? '' : 'pt-0'}>
+                {isExpanded && (
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4">
                     <div className="flex sm:block items-center justify-between sm:justify-start">
                       <p className="text-xs sm:text-sm text-muted-foreground">Companies</p>
@@ -635,28 +635,28 @@ function SectorList({ company, onBack, onSelectSector }: {
                       <p className="font-semibold text-sm sm:text-base">{sector.medianEmployeeCagr.toFixed(1)}%</p>
                     </div>
                   </div>
+                )}
 
-                  {sector.graphs.length > 0 && (
-                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t">
-                      <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {sector.graphs.map((graph, idx) => (
-                          <Button
-                            key={idx}
-                            variant="secondary"
-                            size="sm"
-                            onClick={() => openGraphInNewTab(graph.filename)}
-                            className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
-                          >
-                            <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                            <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
-                          </Button>
-                        ))}
-                      </div>
+                {sector.graphs.length > 0 && (
+                  <div className={isExpanded ? 'mt-3 sm:mt-4 pt-3 sm:pt-4 border-t' : ''}>
+                    <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {sector.graphs.map((graph, idx) => (
+                        <Button
+                          key={idx}
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => openGraphInNewTab(graph.filename)}
+                          className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
+                        >
+                          <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                          <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
+                        </Button>
+                      ))}
                     </div>
-                  )}
-                </CardContent>
-              )}
+                  </div>
+                )}
+              </CardContent>
             </Card>
           );
         })}
@@ -707,8 +707,8 @@ function ThematicList({ sector, onBack }: {
                   </Button>
                 </div>
               </CardHeader>
-              {isExpanded && (
-                <CardContent>
+              <CardContent className={isExpanded ? '' : 'pt-0'}>
+                {isExpanded && (
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 mb-4">
                     <div className="flex sm:block items-center justify-between sm:justify-start">
                       <p className="text-xs sm:text-sm text-muted-foreground">Companies</p>
@@ -723,28 +723,28 @@ function ThematicList({ sector, onBack }: {
                       <p className="font-semibold text-sm sm:text-base">{thematic.medianEmployeeCagr.toFixed(1)}%</p>
                     </div>
                   </div>
+                )}
 
-                  {thematic.graphs.length > 0 && (
-                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t">
-                      <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {thematic.graphs.map((graph, idx) => (
-                          <Button
-                            key={idx}
-                            variant="secondary"
-                            size="sm"
-                            onClick={() => openGraphInNewTab(graph.filename)}
-                            className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
-                          >
-                            <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
-                            <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
-                          </Button>
-                        ))}
-                      </div>
+                {thematic.graphs.length > 0 && (
+                  <div className={isExpanded ? 'mt-3 sm:mt-4 pt-3 sm:pt-4 border-t' : ''}>
+                    <p className="text-xs sm:text-sm font-medium mb-2 sm:mb-3 text-muted-foreground">Graphs:</p>
+                    <div className="flex flex-wrap gap-2">
+                      {thematic.graphs.map((graph, idx) => (
+                        <Button
+                          key={idx}
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => openGraphInNewTab(graph.filename)}
+                          className="rounded-full px-3 sm:px-4 text-xs sm:text-sm cursor-pointer hover:bg-primary hover:text-primary-foreground transition-all duration-200 hover:shadow-md"
+                        >
+                          <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                          <span className="truncate max-w-[150px] sm:max-w-[200px]">{graph.filename}</span>
+                        </Button>
+                      ))}
                     </div>
-                  )}
-                </CardContent>
-              )}
+                  </div>
+                )}
+              </CardContent>
             </Card>
           );
         })}
