@@ -60,7 +60,7 @@ function parseUniqueSectors(csv: string): string[] {
   if (lines.length < 2) return [];
   
   const headers = lines[0].split(',');
-  const sectorIdx = headers.indexOf('sector');
+  const sectorIdx = headers.indexOf('thematic_sector');
   
   if (sectorIdx === -1) return [];
   
@@ -99,6 +99,7 @@ function AdminPanel({ onClose, onRefresh }: {
   onClose: () => void;
   onRefresh: () => void;
 }) {
+    const [companyName, setCompanyName] = useState('');
   const [csvContent, setCsvContent] = useState('');
   const [csvFile, setCsvFile] = useState<File | null>(null);
   const [htmlFiles, setHtmlFiles] = useState<{file: File, sector: string}[]>([]);
@@ -109,19 +110,31 @@ function AdminPanel({ onClose, onRefresh }: {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (csvContent) {
+    if (csvContent && !companyName) {
       const parsedCompanies = parseUniqueCompanies(csvContent);
-      const parsedSectors = parseUniqueSectors(csvContent);
+      if (parsedCompanies.length > 0) {
+        setCompanyName(parsedCompanies[0]);
+      }
       setCompanies(parsedCompanies);
-      setSectors(parsedSectors);
+      setSectors(parseUniqueSectors(csvContent));
+    } else if (csvContent) {
+      setCompanies(parseUniqueCompanies(csvContent));
+      setSectors(parseUniqueSectors(csvContent));
     }
-  }, [csvContent]);
+  }, [csvContent, companyName]);
 
   const handleCsvUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
     
     setCsvFile(file);
+    
+    // Auto-fill company name from filename if not already set
+    if (!companyName) {
+      const fileNameWithoutExt = file.name.replace(/\.csv$/i, '').replace(/[-_]/g, ' ');
+      setCompanyName(fileNameWithoutExt);
+    }
+    
     const reader = new FileReader();
     reader.onload = (event) => {
       setCsvContent(event.target?.result as string);
@@ -156,11 +169,35 @@ function AdminPanel({ onClose, onRefresh }: {
       }
 
       const htmlData = await Promise.all(
-        htmlFiles.map(async ({ file, sector }) => ({
-          filename: file.name,
-          sector,
-          content: await file.text()
-        }))
+        htmlFiles.map(async ({ file, sector }) => {
+          // If company name is overridden, use it. Otherwise try to find it from parsed CSV data.
+          let company = companyName;
+          
+          if (!company && csvContent) {
+             // Fallback logic: try to find which company this sector belongs to in the CSV
+             // This is a bit tricky since sectors might be shared, but given the CSV structure, 
+             // we can try to find the row with this sector.
+             const lines = csvContent.trim().split('\n');
+             const headers = lines[0].split(',');
+             const companyIdx = headers.indexOf('company_name');
+             const sectorIdx = headers.indexOf('thematic_sector');
+             
+             for (let i = 1; i < lines.length; i++) {
+               const cols = parseCSVLine(lines[i]);
+               if (cols[sectorIdx] === sector) {
+                 company = cols[companyIdx];
+                 break;
+               }
+             }
+          }
+
+          return {
+            filename: file.name,
+            sector,
+            company,
+            content: await file.text()
+          };
+        })
       );
 
       const response = await fetch('/api/admin/upload', {
@@ -168,7 +205,8 @@ function AdminPanel({ onClose, onRefresh }: {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           csvContent,
-          htmlFiles: htmlData
+          htmlFiles: htmlData,
+          companyName
         })
       });
       
@@ -207,10 +245,24 @@ function AdminPanel({ onClose, onRefresh }: {
           <CardHeader>
             <CardTitle className="flex items-center gap-2">
               <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
-              Upload CSV
+              Company Details & CSV
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
+            <div>
+              <label className="text-sm font-medium mb-1 block">Company Name (Optional)</label>
+              <input 
+                type="text" 
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                placeholder="Enter company name to override CSV..."
+                className="w-full px-3 py-2 border rounded-md"
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                If provided, this name will be used for all records in the CSV.
+              </p>
+            </div>
+
             <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:bg-muted/50 transition-colors cursor-pointer">
               <input 
                 type="file" 
@@ -270,8 +322,8 @@ function AdminPanel({ onClose, onRefresh }: {
 
               {sectors.length > 0 && (
                 <div className="bg-muted p-4 rounded-lg">
-                  <p className="text-sm font-medium mb-2">Sectors found (from 'sector' column):</p>
-                  <div className="flex flex-wrap gap-2">
+                  <p className="text-sm font-medium mb-2">Sectors found ({sectors.length} total):</p>
+                  <div className="flex flex-wrap gap-2 max-h-32 overflow-y-auto">
                     {sectors.map(s => (
                       <Badge key={s} variant="outline">{s}</Badge>
                     ))}
@@ -445,21 +497,33 @@ function SectorList({ company, onBack, onSelect }: {
 }
 
 // Sector Detail with Graphs
-function SectorDetail({ sector, onBack }: { 
+function SectorDetail({ sector, companyName, onBack, onRefresh }: { 
   sector: Sector;
+  companyName: string;
   onBack: () => void;
+  onRefresh: () => void;
 }) {
+  const [message, setMessage] = useState('');
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b px-6 py-4">
-        <div className="max-w-6xl mx-auto flex items-center gap-4">
+      <header className="border-b px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-4">
           <Button variant="ghost" size="icon" onClick={onBack}>
             <ArrowLeft className="h-5 w-5" />
           </Button>
           <div>
             <h1 className="text-xl font-semibold">{sector.name}</h1>
-            <p className="text-sm text-muted-foreground">{sector.parentCompany}</p>
+            <p className="text-sm text-muted-foreground">{companyName}</p>
           </div>
+        </div>
+        <div className="flex items-center gap-2">
+          {message && <span className="text-sm text-green-600 font-medium">{message}</span>}
+          <label htmlFor="sector-graph-upload" className="cursor-pointer bg-primary text-primary-foreground hover:bg-primary/90 h-9 px-4 py-2 rounded-md inline-flex items-center justify-center text-sm font-medium transition-colors">
+            {loading ? 'Uploading...' : 'Add Graph'}
+            <Upload className="h-4 w-4 ml-2" />
+          </label>
         </div>
       </header>
 
@@ -507,6 +571,48 @@ function SectorDetail({ sector, onBack }: {
           </div>
         )}
       </main>
+
+      <input 
+        type="file" 
+        accept=".html,.htm"
+        className="hidden" 
+        id="sector-graph-upload"
+        onChange={async (e) => {
+          const file = e.target.files?.[0];
+          if (!file) return;
+
+          setLoading(true);
+          setMessage('');
+          try {
+            const content = await file.text();
+            const response = await fetch('/api/admin/upload', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                csvContent: null,
+                htmlFiles: [{
+                  filename: file.name,
+                  sector: sector.name,
+                  company: companyName,
+                  content
+                }]
+              })
+            });
+
+            if (response.ok) {
+              setMessage('Upload successful!');
+              onRefresh(); // Call parent to refresh data
+            } else {
+              alert('Failed to upload graph: ' + await response.text());
+            }
+          } catch (error) {
+            console.error(error);
+            alert('Error uploading graph');
+          } finally {
+            setLoading(false);
+          }
+        }}
+      />
     </div>
   );
 }
@@ -561,10 +667,25 @@ function App() {
           onSelect={(s) => { setSelectedSector(s); setView('detail'); }}
         />
       )}
-      {view === 'detail' && selectedSector && (
+      {view === 'detail' && selectedSector && selectedCompany && (
         <SectorDetail 
           sector={selectedSector}
+          companyName={selectedCompany.name}
           onBack={() => setView('sectors')}
+          onRefresh={async () => {
+            await loadData();
+            // Update the selected sector from the reloaded data
+            setCompanies(prev => {
+              const updatedCompany = prev.find(c => c.name === selectedCompany.name);
+              if (updatedCompany) {
+                const updatedSector = updatedCompany.sectors.find(s => s.name === selectedSector.name);
+                if (updatedSector) {
+                  setSelectedSector(updatedSector);
+                }
+              }
+              return prev;
+            });
+          }}
         />
       )}
       {view === 'upload' && (
