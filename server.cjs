@@ -5,103 +5,91 @@ const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
-const DATA_DIR = path.join(__dirname, 'public', 'data', 'companies');
+const DATA_DIR = path.join(__dirname, 'public', 'data');
+const SECTORS_FILE = path.join(DATA_DIR, 'sectors.csv');
+const GRAPHS_DIR = path.join(DATA_DIR, 'graphs');
 
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '50mb' }));
 
-// Ensure data directory exists
+// Ensure directories exist
 if (!fs.existsSync(DATA_DIR)) {
   fs.mkdirSync(DATA_DIR, { recursive: true });
 }
+if (!fs.existsSync(GRAPHS_DIR)) {
+  fs.mkdirSync(GRAPHS_DIR, { recursive: true });
+}
 
-// Create new company
-app.post('/api/admin/create-company', (req, res) => {
-  const { companyId, companyName, csvContent, htmlContent, htmlFilename } = req.body;
+// Upload sectors CSV and HTML graphs
+app.post('/api/admin/upload-data', (req, res) => {
+  const { csvContent, htmlFiles } = req.body;
   
-  if (!companyId || !companyName || !csvContent) {
-    return res.status(400).send('Missing required fields');
+  if (!csvContent) {
+    return res.status(400).send('CSV content is required');
   }
   
-  const companyDir = path.join(DATA_DIR, companyId);
-  const graphsDir = path.join(companyDir, 'graphs');
-  
   try {
-    // Create directories
-    fs.mkdirSync(companyDir, { recursive: true });
-    fs.mkdirSync(graphsDir, { recursive: true });
+    // Save CSV file
+    fs.writeFileSync(SECTORS_FILE, csvContent);
     
-    // Write metadata.csv
-    fs.writeFileSync(path.join(companyDir, 'metadata.csv'), csvContent);
-    
-    // Write HTML if provided
-    if (htmlContent && htmlFilename) {
-      fs.writeFileSync(path.join(graphsDir, htmlFilename), htmlContent);
+    // Save HTML graph files
+    if (htmlFiles && htmlFiles.length > 0) {
+      for (const html of htmlFiles) {
+        if (html.content && html.filename) {
+          const safeName = html.filename.replace(/[^a-zA-Z0-9.-]/g, '_');
+          fs.writeFileSync(path.join(GRAPHS_DIR, safeName), html.content);
+          
+          // Save metadata
+          const metadataPath = path.join(GRAPHS_DIR, `${safeName}.meta.json`);
+          fs.writeFileSync(metadataPath, JSON.stringify({
+            sector: html.sector,
+            filename: html.filename
+          }));
+        }
+      }
     }
     
-    res.json({ success: true, message: 'Company created' });
+    res.json({ success: true, message: 'Data uploaded' });
   } catch (error) {
-    console.error('Error creating company:', error);
-    res.status(500).send('Failed to create company');
+    console.error('Error uploading:', error);
+    res.status(500).send('Failed to upload');
   }
 });
 
-// Append graph to existing company
-app.post('/api/admin/append-graph', (req, res) => {
-  const { companyId, htmlContent, htmlFilename } = req.body;
-  
-  if (!companyId || !htmlContent || !htmlFilename) {
-    return res.status(400).send('Missing required fields');
-  }
-  
-  const graphsDir = path.join(DATA_DIR, companyId, 'graphs');
-  
+// Get all graphs
+app.get('/api/graphs', (req, res) => {
   try {
-    // Ensure graphs directory exists
-    fs.mkdirSync(graphsDir, { recursive: true });
+    if (!fs.existsSync(GRAPHS_DIR)) {
+      return res.json([]);
+    }
     
-    // Write HTML file
-    const filePath = path.join(graphsDir, htmlFilename);
-    fs.writeFileSync(filePath, htmlContent);
+    const files = fs.readdirSync(GRAPHS_DIR);
+    const graphs = [];
     
-    res.json({ success: true, message: 'Graph appended' });
-  } catch (error) {
-    console.error('Error appending graph:', error);
-    res.status(500).send('Failed to append graph');
-  }
-});
-
-// List companies
-app.get('/api/companies', (req, res) => {
-  try {
-    const companies = fs.readdirSync(DATA_DIR)
-      .filter(dir => fs.statSync(path.join(DATA_DIR, dir)).isDirectory())
-      .map(id => {
-        const metadataPath = path.join(DATA_DIR, id, 'metadata.csv');
-        let name = id;
+    for (const file of files) {
+      if (file.endsWith('.html') || file.endsWith('.htm')) {
+        const metaPath = path.join(GRAPHS_DIR, `${file}.meta.json`);
+        let sector = '';
         
-        if (fs.existsSync(metadataPath)) {
-          const content = fs.readFileSync(metadataPath, 'utf8');
-          const firstLine = content.split('\n')[1];
-          if (firstLine) {
-            const cols = firstLine.split(',');
-            if (cols[0]) name = cols[0];
-          }
+        if (fs.existsSync(metaPath)) {
+          const meta = JSON.parse(fs.readFileSync(metaPath, 'utf8'));
+          sector = meta.sector || '';
         }
         
-        return { id, name };
-      });
+        const content = fs.readFileSync(path.join(GRAPHS_DIR, file), 'utf8');
+        graphs.push({ filename: file, sector, content });
+      }
+    }
     
-    res.json({ companies });
+    res.json(graphs);
   } catch (error) {
-    console.error('Error listing companies:', error);
-    res.status(500).send('Failed to list companies');
+    res.status(500).send('Failed to read graphs');
   }
 });
 
 // Serve static files
 app.use(express.static('dist'));
-app.use('/data', express.static('public/data'));
+app.use('/data', express.static(DATA_DIR));
 
 // SPA fallback
 app.use((req, res) => {
@@ -110,5 +98,4 @@ app.use((req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
-  console.log(`Data directory: ${DATA_DIR}`);
 });
