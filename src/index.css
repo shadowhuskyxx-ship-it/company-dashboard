@@ -424,6 +424,187 @@ body {
   background: var(--amber);
 }
 
+/* Admin Panel */
+.retro-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.admin-btn {
+  background: var(--green);
+  color: var(--black);
+  border-color: var(--green);
+}
+
+.admin-btn:hover {
+  background: var(--green-dim);
+  box-shadow: 0 0 20px rgba(51, 255, 0, 0.5);
+}
+
+.admin-panel .retro-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.retro-tabs {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 2px solid var(--border);
+  padding-bottom: 1rem;
+}
+
+.retro-tab {
+  flex: 1;
+  padding: 1rem;
+  background: var(--dark);
+  border: 2px solid var(--border);
+  color: var(--amber-dim);
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.retro-tab:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.retro-tab.active {
+  background: var(--amber);
+  color: var(--black);
+  border-color: var(--amber);
+}
+
+.retro-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.retro-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.retro-form-group label {
+  font-size: 0.85rem;
+  color: var(--amber-dim);
+  letter-spacing: 2px;
+}
+
+.retro-input, .retro-select {
+  padding: 0.75rem 1rem;
+  background: var(--dark);
+  border: 2px solid var(--border);
+  color: var(--amber);
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.retro-input:focus, .retro-select:focus {
+  border-color: var(--amber);
+  box-shadow: 0 0 10px var(--amber-glow);
+}
+
+.retro-file-input {
+  position: relative;
+}
+
+.retro-file-input input[type="file"] {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.retro-file-label {
+  display: block;
+  padding: 1rem;
+  background: var(--dark);
+  border: 2px dashed var(--border);
+  color: var(--amber-dim);
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.retro-file-label:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
+
+.retro-file-preview {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: var(--darker);
+  border: 1px solid var(--border);
+  max-height: 150px;
+  overflow: auto;
+}
+
+.retro-file-preview pre {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--green);
+}
+
+.retro-filename-input {
+  margin-top: 0.5rem;
+}
+
+.retro-existing-sectors {
+  background: var(--darker);
+  border: 1px solid var(--border);
+  padding: 1rem;
+}
+
+.retro-existing-sectors ul {
+  list-style: none;
+  margin-top: 0.5rem;
+}
+
+.retro-existing-sectors li {
+  padding: 0.25rem 0;
+  color: var(--amber-dim);
+}
+
+.retro-existing-sectors li::before {
+  content: '• ';
+  color: var(--green);
+}
+
+.retro-submit {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  margin-top: 1rem;
+}
+
+.retro-message {
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 2px solid;
+  text-align: center;
+}
+
+.retro-message.success {
+  background: rgba(51, 255, 0, 0.1);
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.retro-message.error {
+  background: rgba(255, 51, 51, 0.1);
+  border-color: #ff3333;
+  color: #ff3333;
+}
+
 /* Selection */
 ::selection {
   background: var(--amber);
