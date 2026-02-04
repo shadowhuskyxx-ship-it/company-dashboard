@@ -14,40 +14,67 @@ interface Sector {
   companyCount: number;
   growthScore: number;
   employeeCagr: number;
-  htmlFile?: string;
+  htmlFile: string;
+}
+
+// Parse metadata CSV
+function parseMetadata(csv: string, companyId: string): Sector[] {
+  const lines = csv.trim().split('\n');
+  if (lines.length < 2) return [];
+  
+  const headers = lines[0].split(',');
+  const thematicIdx = headers.indexOf('thematic_sector');
+  const countIdx = headers.indexOf('company_count');
+  const growthIdx = headers.indexOf('median_growth_score');
+  const cagrIdx = headers.indexOf('median_employee_cagr');
+  
+  const sectors: Sector[] = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    if (cols.length >= 4) {
+      const sectorName = cols[thematicIdx] || `Sector ${i}`;
+      sectors.push({
+        name: sectorName,
+        companyCount: parseInt(cols[countIdx]) || 0,
+        growthScore: parseFloat(cols[growthIdx]) || 0,
+        employeeCagr: parseFloat(cols[cagrIdx]) || 0,
+        htmlFile: `/data/companies/${companyId}/graphs/${sectorName.toLowerCase().replace(/\s+/g, '-')}.html`,
+      });
+    }
+  }
+  return sectors;
 }
 
 // Load company data from folder structure
 async function loadCompanies(): Promise<Company[]> {
-  // Return sample data
-  return [
-    {
-      id: 'acme-corp',
-      name: 'Acme Corp',
-      path: 'data/companies/acme-corp',
-      sectors: [
-        { name: 'Smart Energy Storage', companyCount: 42, growthScore: 0.25, employeeCagr: 15.5, htmlFile: 'smart-energy.html' },
-        { name: 'Grid Flexibility Solutions', companyCount: 28, growthScore: 0.18, employeeCagr: 12.3, htmlFile: 'grid-flex.html' },
-      ]
-    },
-    {
-      id: 'techstart',
-      name: 'TechStart Inc',
-      path: 'data/companies/techstart',
-      sectors: [
-        { name: 'AI & Machine Learning', companyCount: 35, growthScore: 0.32, employeeCagr: 22.1, htmlFile: 'ai-ml.html' },
-        { name: 'Cloud Infrastructure', companyCount: 48, growthScore: 0.28, employeeCagr: 18.7, htmlFile: 'cloud.html' },
-      ]
-    },
-    {
-      id: 'globex',
-      name: 'Globex Industries',
-      path: 'data/companies/globex',
-      sectors: [
-        { name: 'Renewable Energy', companyCount: 56, growthScore: 0.21, employeeCagr: 14.2, htmlFile: 'renewable.html' },
-      ]
+  const companyIds = ['acme-corp', 'techstart', 'globex'];
+  const companyNames: Record<string, string> = {
+    'acme-corp': 'Acme Corp',
+    'techstart': 'TechStart Inc',
+    'globex': 'Globex Industries'
+  };
+  
+  const companies: Company[] = [];
+  
+  for (const id of companyIds) {
+    try {
+      const response = await fetch(`/data/companies/${id}/metadata.csv`);
+      if (response.ok) {
+        const csv = await response.text();
+        const sectors = parseMetadata(csv, id);
+        companies.push({
+          id,
+          name: companyNames[id] || id,
+          path: `data/companies/${id}`,
+          sectors
+        });
+      }
+    } catch (e) {
+      console.error(`Failed to load ${id}:`, e);
     }
-  ];
+  }
+  
+  return companies;
 }
 
 // Views
@@ -128,12 +155,10 @@ function CompanyView({ company, onBack, onSelectSector }: {
                 <div>GROWTH: {(sector.growthScore * 100).toFixed(1)}%</div>
                 <div>CAGR: {sector.employeeCagr.toFixed(1)}%</div>
               </div>
-              {sector.htmlFile && (
-                <div className="retro-html-indicator">
-                  <span className="retro-icon">📊</span>
-                  <span>{sector.htmlFile}</span>
-                </div>
-              )}
+              <div className="retro-html-indicator">
+                <span className="retro-icon">📊</span>
+                <span>GRAPH AVAILABLE</span>
+              </div>
             </div>
           ))}
         </div>
@@ -147,24 +172,30 @@ function CompanyView({ company, onBack, onSelectSector }: {
   );
 }
 
-function SectorView({ company, sector, onBack }: { 
+function SectorView({ sector, onBack }: { 
   company: Company; 
   sector: Sector;
   onBack: () => void;
 }) {
   const [htmlContent, setHtmlContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
-    if (sector.htmlFile) {
-      setLoading(true);
-      fetch(`${company.path}/${sector.htmlFile}`)
-        .then(r => r.text())
-        .then(setHtmlContent)
-        .catch(() => setHtmlContent(null))
-        .finally(() => setLoading(false));
-    }
-  }, [company, sector]);
+    setLoading(true);
+    setError(false);
+    fetch(sector.htmlFile)
+      .then(r => {
+        if (!r.ok) throw new Error('Not found');
+        return r.text();
+      })
+      .then(setHtmlContent)
+      .catch(() => {
+        setError(true);
+        setHtmlContent(null);
+      })
+      .finally(() => setLoading(false));
+  }, [sector]);
 
   return (
     <div className="retro-container">
@@ -189,32 +220,30 @@ function SectorView({ company, sector, onBack }: {
           </div>
         </div>
         
-        {sector.htmlFile && (
-          <div className="retro-html-viewer">
-            <div className="retro-html-header">
-              <span>📊 {sector.htmlFile}</span>
-              <a 
-                href={`${company.path}/${sector.htmlFile}`} 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="retro-link"
-              >
-                OPEN FULL SCREEN ↗
-              </a>
-            </div>
-            {loading ? (
-              <div className="retro-loading">LOADING GRAPH...</div>
-            ) : htmlContent ? (
-              <iframe 
-                srcDoc={htmlContent}
-                className="retro-iframe"
-                title={sector.name}
-              />
-            ) : (
-              <div className="retro-error">GRAPH FILE NOT FOUND</div>
-            )}
+        <div className="retro-html-viewer">
+          <div className="retro-html-header">
+            <span>📊 {sector.htmlFile.split('/').pop()}</span>
+            <a 
+              href={sector.htmlFile} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="retro-link"
+            >
+              OPEN FULL SCREEN ↗
+            </a>
           </div>
-        )}
+          {loading ? (
+            <div className="retro-loading">LOADING GRAPH...</div>
+          ) : error ? (
+            <div className="retro-error">GRAPH FILE NOT FOUND</div>
+          ) : htmlContent ? (
+            <iframe 
+              srcDoc={htmlContent}
+              className="retro-iframe"
+              title={sector.name}
+            />
+          ) : null}
+        </div>
       </div>
     </div>
   );
