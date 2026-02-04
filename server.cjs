@@ -44,8 +44,10 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
 
   const headers = lines[0].split(',');
   const companyIdx = headers.indexOf('company_name');
-  const sectorIdx = headers.indexOf('thematic_sector');
-  const sectorDescIdx = headers.indexOf('thematic_sector_description');
+  const sectorIdx = headers.indexOf('sector');
+  const sectorDescIdx = headers.indexOf('sector_description');
+  const thematicIdx = headers.indexOf('thematic_sector');
+  const thematicDescIdx = headers.indexOf('thematic_sector_description');
   const countIdx = headers.indexOf('company_count');
   const growthIdx = headers.indexOf('median_growth_score');
   const cagrIdx = headers.indexOf('median_employee_cagr');
@@ -56,11 +58,11 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
     const cols = parseCSVLine(lines[i]);
     if (cols.length < 5) continue;
 
-    // Use override if provided, otherwise CSV value
     const companyName = companyNameOverride || cols[companyIdx];
-    if (!companyName) continue;
-
     const sectorName = cols[sectorIdx];
+    const thematicName = cols[thematicIdx];
+
+    if (!companyName) continue;
 
     // Find or create company
     let company = companies.find(c => c.name === companyName);
@@ -69,16 +71,30 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
       companies.push(company);
     }
 
-    // Check if sector already exists
-    const existingSector = company.sectors.find(s => s.name === sectorName);
-    if (!existingSector) {
-      company.sectors.push({
+    // Find or create sector
+    let sector = company.sectors.find(s => s.name === sectorName);
+    if (!sector) {
+      sector = {
         name: sectorName,
         description: cols[sectorDescIdx] || '',
+        companyCount: 0,
+        medianGrowthScore: 0,
+        medianEmployeeCagr: 0,
+        thematicSectors: [],
+        graphs: []
+      };
+      company.sectors.push(sector);
+    }
+
+    // Add thematic sector if not exists
+    const existingThematic = sector.thematicSectors.find(t => t.name === thematicName);
+    if (!existingThematic) {
+      sector.thematicSectors.push({
+        name: thematicName,
+        description: cols[thematicDescIdx] || '',
         companyCount: parseInt(cols[countIdx]) || 0,
         medianGrowthScore: parseFloat(cols[growthIdx]) || 0,
         medianEmployeeCagr: parseFloat(cols[cagrIdx]) || 0,
-        parentCompany: companyName,
         graphs: []
       });
     }
@@ -109,13 +125,12 @@ function parseCSVLine(line) {
 
 // Upload endpoint
 app.post('/api/admin/upload', (req, res) => {
-  const { csvContent, htmlFiles, companyName } = req.body;
-  console.log('[UPLOAD] Request received. companyName override:', companyName || 'None');
+  const { csvContent, companyName, htmlFiles } = req.body;
+  console.log('[UPLOAD] Request received. companyName:', companyName);
 
   try {
     // Load existing data
     let data = loadData();
-    console.log(`[UPLOAD] Current company count: ${data.companies.length}`);
 
     // Merge CSV data
     if (csvContent) {
@@ -123,51 +138,49 @@ app.post('/api/admin/upload', (req, res) => {
       data = mergeCSVData(data, csvContent, companyName);
     }
 
-    // Save HTML graph files and attach to sectors
+    // Save HTML graph files and attach to sectors/thematics
     if (htmlFiles && htmlFiles.length > 0) {
       console.log(`[UPLOAD] Processing ${htmlFiles.length} HTML files...`);
       for (const html of htmlFiles) {
-        if (html.content && html.filename && html.company && html.sector) {
-          console.log(`[UPLOAD] Processing file: ${html.filename} for ${html.company} -> ${html.sector}`);
+        if (html.content && html.filename && html.target) {
+          console.log(`[UPLOAD] Processing file: ${html.filename} for ${html.type}: ${html.target}`);
           const safeName = html.filename.replace(/[^a-zA-Z0-9.-]/g, '_');
           fs.writeFileSync(path.join(GRAPHS_DIR, safeName), html.content);
 
-          // Find company and sector
-          const company = data.companies.find(c => c.name === html.company);
+          // Find company
+          const company = data.companies.find(c => c.name === companyName);
           if (company) {
-            const sector = company.sectors.find(s => s.name === html.sector);
-            if (sector) {
-              if (!sector.graphs) sector.graphs = [];
-              // Avoid duplicates
-              const existingGraph = sector.graphs.find(g => g.filename === html.filename);
-              if (existingGraph) {
-                existingGraph.content = html.content;
-              } else {
-                sector.graphs.push({
-                  filename: html.filename,
-                  content: html.content
-                });
+            if (html.type === 'sector') {
+              // Attach to sector
+              const sector = company.sectors.find(s => s.name === html.target);
+              if (sector) {
+                if (!sector.graphs) sector.graphs = [];
+                const existing = sector.graphs.find(g => g.filename === html.filename);
+                if (existing) {
+                  existing.content = html.content;
+                } else {
+                  sector.graphs.push({ filename: html.filename, content: html.content });
+                }
+                console.log(`[UPLOAD] Attached to sector: ${html.target}`);
               }
-              console.log(`[UPLOAD] Success: Attached ${html.filename} to ${html.company} -> ${html.sector}`);
-            } else {
-              console.warn(`[UPLOAD] Sector not found: "${html.sector}" in company "${html.company}"`);
-              console.log(`[UPLOAD] Available sectors for this company: ${company.sectors.map(s => s.name).join(', ')}`);
-            }
-          } else {
-            console.warn(`[UPLOAD] Company not found by name: "${html.company}"`);
-            // Close match check
-            const closeMatch = data.companies.find(c => c.name.toLowerCase().trim() === html.company.toLowerCase().trim());
-            if (closeMatch) {
-              console.log(`[UPLOAD] Found close match: "${closeMatch.name}"`);
+            } else if (html.type === 'thematic') {
+              // Attach to thematic sector (search across all sectors)
+              for (const sector of company.sectors) {
+                const thematic = sector.thematicSectors.find(t => t.name === html.target);
+                if (thematic) {
+                  if (!thematic.graphs) thematic.graphs = [];
+                  const existing = thematic.graphs.find(g => g.filename === html.filename);
+                  if (existing) {
+                    existing.content = html.content;
+                  } else {
+                    thematic.graphs.push({ filename: html.filename, content: html.content });
+                  }
+                  console.log(`[UPLOAD] Attached to thematic: ${html.target} in sector: ${sector.name}`);
+                  break;
+                }
+              }
             }
           }
-        } else {
-          console.warn('[UPLOAD] Missing required HTML data fields:', {
-            filename: html.filename,
-            company: html.company,
-            sector: html.sector,
-            hasContent: !!html.content
-          });
         }
       }
     }
