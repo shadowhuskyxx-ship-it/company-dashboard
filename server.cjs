@@ -48,9 +48,14 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
   const sectorDescIdx = headers.indexOf('sector_description');
   const thematicIdx = headers.indexOf('thematic_sector');
   const thematicDescIdx = headers.indexOf('thematic_sector_description');
-  const countIdx = headers.indexOf('company_count');
-  const growthIdx = headers.indexOf('median_growth_score');
-  const cagrIdx = headers.indexOf('median_employee_cagr');
+  // Sector-level metrics
+  const sectorCountIdx = headers.indexOf('sector_company_count');
+  const sectorGrowthIdx = headers.indexOf('sector_median_growth_score');
+  const sectorCagrIdx = headers.indexOf('sector_median_employee_cagr');
+  // Thematic-level metrics
+  const thematicCountIdx = headers.indexOf('company_count');
+  const thematicGrowthIdx = headers.indexOf('median_growth_score');
+  const thematicCagrIdx = headers.indexOf('median_employee_cagr');
 
   const companies = [...existingData.companies];
 
@@ -77,9 +82,9 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
       sector = {
         name: sectorName,
         description: cols[sectorDescIdx] || '',
-        companyCount: 0,
-        medianGrowthScore: 0,
-        medianEmployeeCagr: 0,
+        companyCount: parseInt(cols[sectorCountIdx]) || 0,
+        medianGrowthScore: parseFloat(cols[sectorGrowthIdx]) || 0,
+        medianEmployeeCagr: parseFloat(cols[sectorCagrIdx]) || 0,
         thematicSectors: [],
         graphs: []
       };
@@ -92,9 +97,9 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
       sector.thematicSectors.push({
         name: thematicName,
         description: cols[thematicDescIdx] || '',
-        companyCount: parseInt(cols[countIdx]) || 0,
-        medianGrowthScore: parseFloat(cols[growthIdx]) || 0,
-        medianEmployeeCagr: parseFloat(cols[cagrIdx]) || 0,
+        companyCount: parseInt(cols[thematicCountIdx]) || 0,
+        medianGrowthScore: parseFloat(cols[thematicGrowthIdx]) || 0,
+        medianEmployeeCagr: parseFloat(cols[thematicCagrIdx]) || 0,
         graphs: []
       });
     }
