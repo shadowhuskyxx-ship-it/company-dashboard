@@ -168,10 +168,13 @@ function parseUniqueThematicSectors(csv: string): string[] {
 }
 
 // Admin Panel
-function AdminPanel({ onClose, onRefresh }: { 
+function AdminPanel({ onClose, onRefresh, existingCompanies }: {
   onClose: () => void;
   onRefresh: () => void;
+  existingCompanies: Company[];
 }) {
+  const [mode, setMode] = useState<'new' | 'add-graphs'>('new');
+  const [selectedCompany, setSelectedCompany] = useState<Company | null>(null);
   const [companyName, setCompanyName] = useState('');
   const [csvContent, setCsvContent] = useState('');
   const [csvFile, setCsvFile] = useState<File | null>(null);
@@ -188,6 +191,16 @@ function AdminPanel({ onClose, onRefresh }: {
       setThematicSectors(parseUniqueThematicSectors(csvContent));
     }
   }, [csvContent]);
+
+  useEffect(() => {
+    if (selectedCompany) {
+      setCompanyName(selectedCompany.name);
+      const allSectors = selectedCompany.sectors.map(s => s.name);
+      const allThematics = selectedCompany.sectors.flatMap(s => s.thematicSectors.map(t => t.name));
+      setSectors(allSectors);
+      setThematicSectors([...new Set(allThematics)]);
+    }
+  }, [selectedCompany]);
 
   const handleCsvUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -231,8 +244,14 @@ function AdminPanel({ onClose, onRefresh }: {
     setLoading(true);
 
     try {
-      if (!csvContent) {
+      if (mode === 'new' && !csvContent) {
         throw new Error('Please upload a CSV file');
+      }
+      if (mode === 'add-graphs' && !selectedCompany) {
+        throw new Error('Please select a company');
+      }
+      if (htmlFiles.length === 0) {
+        throw new Error('Please upload at least one HTML file');
       }
 
       const htmlData = await Promise.all(
@@ -248,18 +267,19 @@ function AdminPanel({ onClose, onRefresh }: {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          csvContent,
+          csvContent: mode === 'new' ? csvContent : null,
           companyName,
           htmlFiles: htmlData
         })
       });
-      
+
       if (response.ok) {
-        setMessage('Upload successful');
+        setMessage(mode === 'new' ? 'Upload successful' : 'Graphs added successfully');
         setCsvContent('');
         setCsvFile(null);
         setCompanyName('');
         setHtmlFiles([]);
+        setSelectedCompany(null);
         onRefresh();
       } else {
         throw new Error(await response.text());
@@ -284,63 +304,126 @@ function AdminPanel({ onClose, onRefresh }: {
       </header>
 
       <main className="max-w-4xl mx-auto p-6 space-y-6">
-        {/* Step 1: CSV */}
-        <Card>
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
-              Company Details & CSV
-            </CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div>
-              <label className="text-sm font-medium mb-1 block">Company Name</label>
-              <Input 
-                type="text" 
-                value={companyName}
-                onChange={(e) => setCompanyName(e.target.value)}
-                placeholder="Enter company name..."
-              />
-              <p className="text-xs text-muted-foreground mt-1">
-                Auto-filled from filename. Edit if needed.
-              </p>
-            </div>
+        {/* Mode Selector */}
+        <div className="flex gap-2 p-1 bg-muted rounded-lg">
+          <button
+            onClick={() => setMode('new')}
+            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${
+              mode === 'new'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            New Company
+          </button>
+          <button
+            onClick={() => setMode('add-graphs')}
+            className={`flex-1 py-2 px-4 rounded-md text-sm font-medium transition-all ${
+              mode === 'add-graphs'
+                ? 'bg-background text-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            Add Graphs to Existing
+          </button>
+        </div>
 
-            <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:bg-muted/50 transition-colors cursor-pointer">
-              <input 
-                type="file" 
-                accept=".csv"
-                onChange={handleCsvUpload}
-                className="hidden"
-                id="csv-upload"
-              />
-              <label htmlFor="csv-upload" className="cursor-pointer">
-                <Upload className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
-                <p className="font-medium">
-                  {csvFile ? csvFile.name : 'Click to upload CSV'}
+        {/* Step 1: Company Selection */}
+        {mode === 'new' ? (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+                Company Details & CSV
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <div>
+                <label className="text-sm font-medium mb-1 block">Company Name</label>
+                <Input
+                  type="text"
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Enter company name..."
+                />
+                <p className="text-xs text-muted-foreground mt-1">
+                  Auto-filled from filename. Edit if needed.
                 </p>
-                <p className="text-sm text-muted-foreground mt-2">
-                  Columns: company_name, sector, thematic_sector, descriptions, company_count, median_growth_score, median_employee_cagr
-                </p>
-              </label>
-            </div>
-
-            {sectors.length > 0 && (
-              <div className="bg-muted p-4 rounded-lg">
-                <p className="text-sm font-medium mb-2">Sectors found: {sectors.length}</p>
-                <p className="text-sm font-medium mb-2">Thematic sectors found: {thematicSectors.length}</p>
               </div>
-            )}
-          </CardContent>
-        </Card>
+
+              <div className="border-2 border-dashed border-border rounded-lg p-8 text-center hover:bg-muted/50 transition-colors cursor-pointer">
+                <input
+                  type="file"
+                  accept=".csv"
+                  onChange={handleCsvUpload}
+                  className="hidden"
+                  id="csv-upload"
+                />
+                <label htmlFor="csv-upload" className="cursor-pointer">
+                  <Upload className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
+                  <p className="font-medium">
+                    {csvFile ? csvFile.name : 'Click to upload CSV'}
+                  </p>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Columns: company_name, sector, thematic_sector, descriptions, company_count, median_growth_score, median_employee_cagr
+                  </p>
+                </label>
+              </div>
+
+              {sectors.length > 0 && (
+                <div className="bg-muted p-4 rounded-lg">
+                  <p className="text-sm font-medium mb-2">Sectors found: {sectors.length}</p>
+                  <p className="text-sm font-medium mb-2">Thematic sectors found: {thematicSectors.length}</p>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ) : (
+          <Card>
+            <CardHeader>
+              <CardTitle className="flex items-center gap-2">
+                <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">1</span>
+                Select Company
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              {existingCompanies.length === 0 ? (
+                <p className="text-muted-foreground">No companies exist yet. Create one first.</p>
+              ) : (
+                <>
+                  <select
+                    value={selectedCompany?.name || ''}
+                    onChange={(e) => {
+                      const company = existingCompanies.find(c => c.name === e.target.value);
+                      setSelectedCompany(company || null);
+                    }}
+                    className="w-full px-3 py-2 rounded-md border bg-background"
+                  >
+                    <option value="">Select a company...</option>
+                    {existingCompanies.map(c => (
+                      <option key={c.name} value={c.name}>{c.name}</option>
+                    ))}
+                  </select>
+
+                  {selectedCompany && (
+                    <div className="bg-muted p-4 rounded-lg">
+                      <p className="text-sm font-medium mb-2">Available sectors: {sectors.length}</p>
+                      <p className="text-sm font-medium">Available thematic sectors: {thematicSectors.length}</p>
+                    </div>
+                  )}
+                </>
+              )}
+            </CardContent>
+          </Card>
+        )}
 
         {/* Step 2: HTML Graphs */}
-        {csvContent && (
+        {(mode === 'add-graphs' ? selectedCompany : csvContent) && (
           <Card>
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <span className="bg-primary text-primary-foreground w-6 h-6 rounded-full flex items-center justify-center text-sm">2</span>
-                Upload Graphs (Optional)
+                {mode === 'new' ? 'Upload Graphs (Optional)' : 'Upload Graphs'}
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -405,13 +488,13 @@ function AdminPanel({ onClose, onRefresh }: {
           </div>
         )}
 
-        <Button 
-          className="w-full" 
-          size="lg" 
-          onClick={handleSubmit} 
-          disabled={loading || !csvContent}
+        <Button
+          className="w-full"
+          size="lg"
+          onClick={handleSubmit}
+          disabled={loading || (mode === 'new' ? !csvContent : !selectedCompany) || htmlFiles.length === 0}
         >
-          {loading ? 'Uploading...' : 'Upload'}
+          {loading ? (mode === 'new' ? 'Uploading...' : 'Adding Graphs...') : (mode === 'new' ? 'Upload' : 'Add Graphs')}
         </Button>
       </main>
     </div>
@@ -693,12 +776,13 @@ function App() {
         />
       )}
       {view === 'upload' && (
-        <AdminPanel 
+        <AdminPanel
           onClose={() => setView('list')}
           onRefresh={() => {
             loadData();
             setView('list');
           }}
+          existingCompanies={companies}
         />
       )}
     </>
