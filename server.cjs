@@ -56,6 +56,11 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
   const thematicCountIdx = headers.indexOf('company_count');
   const thematicGrowthIdx = headers.indexOf('median_growth_score');
   const thematicCagrIdx = headers.indexOf('median_employee_cagr');
+  const thematicRevIdx = headers.indexOf('median_revenue_cagr'); // Added
+  const thematicAcqIdx = headers.indexOf('acquisition_pct');     // Added
+  const thematicRankIdx = headers.indexOf('combined_rank');     // Combined rank
+  const thematicEntryIdx = headers.indexOf('entry_rate_pct');   // Entry rate
+  const thematic5YrIdx = headers.indexOf('5_year_median_employee_cagr_pct'); // 5yr CAGR
 
   const companies = [...existingData.companies];
 
@@ -100,6 +105,11 @@ function mergeCSVData(existingData, csvContent, companyNameOverride = null) {
         companyCount: parseInt(cols[thematicCountIdx]) || 0,
         medianGrowthScore: parseFloat(cols[thematicGrowthIdx]) || 0,
         medianEmployeeCagr: parseFloat(cols[thematicCagrIdx]) || 0,
+        medianRevenueCagr: parseFloat(cols[thematicRevIdx]) || 0,
+        acquisitionPct: parseFloat(cols[thematicAcqIdx]) || 0,
+        entryRatePct: parseFloat(cols[thematicEntryIdx]) || 0,
+        fiveYearCagr: parseFloat(cols[thematic5YrIdx]) || 0,
+        rank: parseInt(cols[thematicRankIdx]) || 0,
         graphs: []
       });
     }
@@ -216,7 +226,7 @@ app.delete('/api/company/:name', (req, res) => {
 });
 
 // Serve static files
-app.use(express.static('dist'));
+app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/data', express.static(DATA_DIR));
 
 // SPA fallback
