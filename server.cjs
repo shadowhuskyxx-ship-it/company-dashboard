@@ -206,6 +206,15 @@ app.get('/api/data', (req, res) => {
   res.json(loadData());
 });
 
+// Delete company
+app.delete('/api/company/:name', (req, res) => {
+  const { name } = req.params;
+  const data = loadData();
+  data.companies = data.companies.filter(c => c.name !== name);
+  saveData(data);
+  res.json({ success: true });
+});
+
 // Serve static files
 app.use(express.static('dist'));
 app.use('/data', express.static(DATA_DIR));
